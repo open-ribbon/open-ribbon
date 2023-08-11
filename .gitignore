@@ -1,0 +1,16 @@
+iso/
+
+ctx.c
+ctx.c.m2c
+*.ld
+*auto.*.txt
+__pycache__
+
+asm/*/*.s
+asm/*/data/*.s
+asm/*/nonmatchings/*.s
+asm/*/nonmatchings/*/*.s
+asm/*/nonmatchings/*/*/*.s
+assets/
+build/
+expected/

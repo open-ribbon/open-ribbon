@@ -1,0 +1,10 @@
+VideoSys__FlipBuffer = 0x8001D558;
+VideoSys__OnDrawSync = 0x8001D584;
+VideoSys__OnVSync = 0x8001D58C;
+VideoSys__Init = 0x8001D5F8;
+VideoSys__Quit = 0x8001DAC0;
+VideoSys__Reset = 0x8001DB98;
+VideoSys__Flip = 0x8001DBC8;
+VideoSys__WriteFnt = 0x8001E2E8;
+VideoSys__DisplayFnt = 0x8001E314;
+VideoSys__GetOT = 0x8001E338;
