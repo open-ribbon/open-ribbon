@@ -14,8 +14,8 @@ options:
     
     # disasm
     symbol_addrs_path:           config/symbols.sces028.txt
-    undefined_funcs_auto_path:   config/undefined_funcs_auto.sces028.txt
-    undefined_syms_auto_path:    config/undefined_syms_auto.sces028.txt
+    undefined_funcs_auto_path:   config/undefined_funcs_auto.sces028.vib-ribbon.txt
+    undefined_syms_auto_path:    config/undefined_syms_auto.sces028.vib-ribbon.txt
     find_file_boundaries:        yes
     use_legacy_include_asm:      no
     migrate_rodata_to_functions: no
