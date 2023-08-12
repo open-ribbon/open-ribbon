@@ -5,7 +5,7 @@ options:
     base_path:   ..
     target_path: iso/MAIN_T.EXE
     asm_path:    asm/game/
-    asset_path:  assets/game/
+    asset_path:  assets/
     src_path:    src/game/
     
     # compiler
@@ -19,7 +19,6 @@ options:
     find_file_boundaries:        yes
     use_legacy_include_asm:      no
     migrate_rodata_to_functions: no
-    disasm_unknown:              yes
 segments:
     - [0, header]
     - name:  vib-ribbon
@@ -30,7 +29,11 @@ segments:
       subsegments:
         - [0x800, rodata] # rodata
         - [0x4D58, c]     # text
+        - [0x13778, asm, entrypoint]
+        - [0x13868, c, psyq_libs]
         - [0x27118, data] # data
         - [0x2F6C0, data] # sdata
-        - [0x2F92C, data] # bss
+        - [0x2F964, data] # sbss
+        - [0x2F970, data] # bss
+        #- [0x2F92C, data] # bss
     - [0x30000]
