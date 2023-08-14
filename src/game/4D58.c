@@ -235,7 +235,7 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D78);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D9C);
 
-INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022EE8);
+INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__SetProjection);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023060);
 

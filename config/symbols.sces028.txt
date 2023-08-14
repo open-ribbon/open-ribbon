@@ -11,6 +11,15 @@ VideoSys__GetOT = 0x8001E338;
 VideoSys__AddVSyncCB = 0x8001E358;
 VideoSys__RemoveVSyncCB = 0x8001E410;
 VideoSys__alloc = 0x8001E488;
+VideoSys__SetProjection = 0x80022EE8;
 main = 0x800233C0;
 start = 0x8002BF78;
+
 ResetGraph = 0x8002CDE8;
+GsSetProjection = 0x80035DFC;
+InitClip = 0x80035E1C;
+
+evbfad = 0x8003FEE0;
+
+HWD0 = 0x800481E8;
+V2D0 = 0x800481EC;

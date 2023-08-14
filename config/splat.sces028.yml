@@ -31,7 +31,7 @@ segments:
         - [0x800, rodata] # rodata
         - [0x4D58, c]     # text
         - [0x13778, asm, entrypoint]
-        - [0x13868, c, psyq_libs]
+        - [0x13868, c, psyq]
         - [0x27118, data] # data
         - [0x2F6C0, data] # sdata
         - [0x2F964, data] # sbss
