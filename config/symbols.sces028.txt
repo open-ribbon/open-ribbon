@@ -18,6 +18,8 @@ start = 0x8002BF78;
 ResetGraph = 0x8002CDE8;
 GsSetProjection = 0x80035DFC;
 InitClip = 0x80035E1C;
+rcos = 0x80035F3C;
+rsin = 0x80035FDC;
 
 evbfad = 0x8003FEE0;
 

@@ -354,9 +354,9 @@ INCLUDE_ASM("asm/game/nonmatchings/psyq", GsSetProjection);
 
 INCLUDE_ASM("asm/game/nonmatchings/psyq", InitClip);
 
-INCLUDE_ASM("asm/game/nonmatchings/psyq", func_80035F3C);
+INCLUDE_ASM("asm/game/nonmatchings/psyq", rcos);
 
-INCLUDE_ASM("asm/game/nonmatchings/psyq", func_80035FDC);
+INCLUDE_ASM("asm/game/nonmatchings/psyq", rsin);
 
 INCLUDE_ASM("asm/game/nonmatchings/psyq", func_80036018);
 

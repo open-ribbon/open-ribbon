@@ -237,6 +237,19 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D9C);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__SetProjection);
 
+/*void VideoSys__SetProjection(s32 proj) {
+    s32 temp_lo;
+    s32 h;
+    s32 temp_s0;
+
+    temp_lo = (s32) (proj / 360) / 2;
+    temp_s0 = rcos(temp_lo);
+    h = (s32) (((s32) ((s32) (temp_s0 * VWD0) / rsin(temp_lo)) >> 1) * HWD0 * 3) / (s32)(VWD0 * 4);
+	
+    GsSetProjection(h);
+    InitClip(&evbfad, HWD0 + 8, VWD0 + 8, h, h / 2, 0xFFFF);
+}*/
+
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023060);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8002310C);
