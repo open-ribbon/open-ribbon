@@ -11,6 +11,7 @@ asm/*/data/*.s
 asm/*/nonmatchings/*.s
 asm/*/nonmatchings/*/*.s
 asm/*/nonmatchings/*/*/*.s
+nonmatchings/
 assets/
 build/
 expected/
