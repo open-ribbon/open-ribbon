@@ -235,20 +235,28 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D78);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D9C);
 
+#ifndef NON_MATCHING
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__SetProjection);
-
-/*void VideoSys__SetProjection(s32 proj) {
-    s32 temp_lo;
-    s32 h;
-    s32 temp_s0;
-
-    temp_lo = (s32) (proj / 360) / 2;
-    temp_s0 = rcos(temp_lo);
-    h = (s32) (((s32) ((s32) (temp_s0 * VWD0) / rsin(temp_lo)) >> 1) * HWD0 * 3) / (s32)(VWD0 * 4);
+#else
+void VideoSys__SetProjection(s32 h)
+{
+	s32 proj;
 	
-    GsSetProjection(h);
-    InitClip(&evbfad, HWD0 + 8, VWD0 + 8, h, h / 2, 0xFFFF);
-}*/
+	s32 factor = 360;
+	s32 two = 2;
+    
+	s32 a = rcos((h / factor) / two);
+	s32 b = rsin((h / factor) / two);
+    
+	two = HWD0; /* this bumps the match to 98.74% (for some reason) */
+    
+	proj = (((a * VWD0) / b) >> 1) * two;
+	proj = (proj * 3) / (VWD0 * 4);
+    
+	GsSetProjection(proj);
+	InitClip(&evbfad, HWD0 + 8, VWD0 + 8, proj, proj / 2, 0xFFFF);
+}
+#endif
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023060);
 
