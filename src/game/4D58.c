@@ -1,4 +1,5 @@
 #include "common.h"
+#include <psyq/libgte.h>
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__FlipBuffer);
 
@@ -238,6 +239,11 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D9C);
 #ifndef NON_MATCHING
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__SetProjection);
 #else
+void GsSetProjection(s32 proj);
+
+extern EVECTOR evbfad;
+extern s32 HWD0, VWD0;
+
 void VideoSys__SetProjection(s32 h)
 {
 	s32 proj;
@@ -258,7 +264,23 @@ void VideoSys__SetProjection(s32 h)
 }
 #endif
 
-INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023060);
+//s32 func_80035CAC(SVECTOR *v0, SVECTOR *v1, SVECTOR *v2, EVECTOR **evmx); /* Clip3F */
+extern EVECTOR* evmx[]; /* evmx */
+
+s32 func_80023060(SVECTOR* vec1, SVECTOR* vec2)
+{  
+    if (Clip3F(vec1, vec2, vec2, &evmx) >= 2)
+    {
+        *vec1 = evmx[0]->v;
+        *vec2 = evmx[1]->v;
+
+        return 1;
+    }
+
+    return 0;
+}
+
+//INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023060);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8002310C);
 
