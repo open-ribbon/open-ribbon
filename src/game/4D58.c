@@ -236,9 +236,9 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D78);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022D9C);
 
-#ifndef NON_MATCHING
+/*#ifndef NON_MATCHING
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__SetProjection);
-#else
+#else*/
 void GsSetProjection(s32 proj);
 
 extern EVECTOR evbfad;
@@ -262,12 +262,12 @@ void VideoSys__SetProjection(s32 h)
 	GsSetProjection(proj);
 	InitClip(&evbfad, HWD0 + 8, VWD0 + 8, proj, proj / 2, 0xFFFF);
 }
-#endif
+//#endif
 
 //s32 func_80035CAC(SVECTOR *v0, SVECTOR *v1, SVECTOR *v2, EVECTOR **evmx); /* Clip3F */
-extern EVECTOR* evmx[]; /* evmx */
+//extern EVECTOR* evmx[]; /* evmx */
 
-s32 func_80023060(SVECTOR* vec1, SVECTOR* vec2)
+/*s32 func_80023060(SVECTOR* vec1, SVECTOR* vec2)
 {  
     if (Clip3F(vec1, vec2, vec2, &evmx) >= 2)
     {
@@ -278,9 +278,9 @@ s32 func_80023060(SVECTOR* vec1, SVECTOR* vec2)
     }
 
     return 0;
-}
+}*/
 
-//INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023060);
+INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023060);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8002310C);
 
