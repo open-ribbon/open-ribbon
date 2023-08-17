@@ -16,12 +16,13 @@ main = 0x800233C0;
 start = 0x8002BF78;
 
 ResetGraph = 0x8002CDE8;
+Clip3F = 0x80035CAC;
 GsSetProjection = 0x80035DFC;
 InitClip = 0x80035E1C;
 rcos = 0x80035F3C;
 rsin = 0x80035FDC;
 
 evbfad = 0x8003FEE0;
-
+evmx = 0x800401A0;
 HWD0 = 0x800481E8;
 VWD0 = 0x800481EC;
