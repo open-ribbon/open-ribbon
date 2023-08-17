@@ -1,18 +1,23 @@
 # binaries
-BUILD 			:= sces028
-GAME 			:= vib-ribbon
-MAINT 			:= MAIN_T
+BUILD           := sces028
+GAME            := vib-ribbon
+MAINT           := MAIN_T
 
 # compilers
-CROSS           := mipsel-linux-gnu-
-AS              := $(CROSS)as
-CC              := ./bin/cc1-psx
-LD              := $(CROSS)ld
-CPP				:= $(CROSS)cpp
+CROSS           := mips-linux-gnu-
+AS              := $(CROSS)as -EL
+# CC              := ./bin/cc1-psx
+# NOTE: this is vanilla gcc 2.91.66 from decompals/old-gcc repo
+CC              := ./bin/cc1
+LD              := $(CROSS)ld -EL
+CPP             := $(CROSS)cpp
 OBJCOPY         := $(CROSS)objcopy
 AS_FLAGS        += -Iinclude -march=r3000 -mtune=r3000 -no-pad-sections -Os
-CC_FLAGS        += -mips1 -mcpu=3000 -quiet -Wall -fno-builtin -mno-abicalls -fsigned-char -G0 -Os -gcoff
-CPP_FLAGS       += -Iinclude -Iinclude/psyq -undef -Wall -lang-c -fno-builtin -gstabs
+
+CC_FLAGS        =  -Iinclude -mips1 -mcpu=3000 -quiet -Wall -fno-builtin -mno-abicalls -fsigned-char -G8 -Os -gcoff
+CC_FLAGS        += -mel -fpeephole -ffunction-cse -fkeep-static-consts -fpcc-struct-return -fcommon -fgnu-linker -fargument-alias -msplit-addresses -mgas -mgpOPT -mgpopt -msoft-float -mcpu=r3000
+
+CPP_FLAGS        = -Iinclude -Iinclude/psyq -undef -Wall -lang-c -fno-builtin -gstabs
 CPP_FLAGS       += -Dmips -D__GNUC__=2 -D__OPTIMIZE__ -D__mips__ -D__mips -Dpsx -D__psx__ -D__psx -D_PSYQ -D__EXTENSIONS__ -D_MIPSEL -D_LANGUAGE_C -DLANGUAGE_C
 
 ifdef PERMUTER
@@ -20,12 +25,12 @@ CPP_FLAGS       += -DPERMUTER
 endif
 
 # directories
-ASM_DIR 		:= asm
-SRC_DIR 		:= src
-INCLUDE_DIR 	:= include
-BUILD_DIR 		:= build
-CONFIG_DIR 		:= config
-TOOLS_DIR 		:= tools
+ASM_DIR       := asm
+SRC_DIR       := src
+INCLUDE_DIR   := include
+BUILD_DIR     := build
+CONFIG_DIR    := config
+TOOLS_DIR     := tools
 
 # files
 VIBRI_ASM_DIRS   := $(ASM_DIR)/game $(ASM_DIR)/game/data
@@ -50,11 +55,11 @@ M2CTX           := $(PYTHON) $(M2CTX_APP)
 M2C_DIR         := $(TOOLS_DIR)/m2c
 M2C_APP         := $(M2C_DIR)/m2c.py
 M2C             := $(PYTHON) $(M2C_APP)
-M2C_ARGS		:= -P 4
-MASPSX_DIR		:= $(TOOLS_DIR)/maspsx
-MASPSX_APP		:= $(MASPSX_DIR)/maspsx.py
-MASPSX			:= $(PYTHON) $(MASPSX_APP)
-MASPSX_ARGS		:= --no-macro-inc --expand-div
+M2C_ARGS        := -P 4
+MASPSX_DIR      := $(TOOLS_DIR)/maspsx
+MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
+MASPSX          := $(PYTHON) $(MASPSX_APP)
+MASPSX_ARGS     := --no-macro-inc --expand-div
 
 define list_src_files
 		$(foreach dir, $(ASM_DIR)/game,			$(wildcard $(dir)/**.s))
@@ -80,10 +85,7 @@ endef
 all: build check
 build: vib-ribbon
 clean:
-		git clean -fdx asm/
-		git clean -fdx $(BUILD_DIR)
-		git clean -fdx config/
-		git clean -fx
+		rm -rf build asm
 format:
 		clang-format -i $$(find $(SRC_DIR)/ -type f -name "*.c")
 		clang-format -i $$(find $(INCLUDE_DIR)/ -type f -name "*.h")
@@ -91,9 +93,9 @@ check:
 		sha1sum --check sces028.sha
 expected: check
 		rm -rf expected/build
-		cp -r build expected/
-		
-MAIN_T.elf: $(VIBRI_O_FILES)
+		cp -r build expected/build
+
+$(MAINT).elf: $(VIBRI_O_FILES)
 		$(LD) -o $@ \
 		-Map $(VIBRI_TARGET).map \
 		-T $(GAME).ld \
@@ -101,21 +103,27 @@ MAIN_T.elf: $(VIBRI_O_FILES)
 		--no-check-sections \
 		-nostdlib \
 		-s
-		
-vib-ribbon: $(BUILD_DIR)/MAIN_T.EXE
-$(BUILD_DIR)/MAIN_T.EXE: $(BUILD_DIR)/$(MAINT).elf
+
+
+vib-ribbon: $(BUILD_DIR)/$(MAINT).EXE
+$(BUILD_DIR)/$(MAINT).EXE: $(BUILD_DIR)/$(MAINT).elf
 		$(OBJCOPY) -O binary $(BUILD_DIR)/$(MAINT).elf $@
 $(BUILD_DIR)/$(MAINT).elf: $(call list_o_files)
 		$(call link,vib-ribbon,$@)
-		
-extract: require-tools
+
+dirs:
+	mkdir -p $(BUILD_DIR)/asm/game/data
+	mkdir -p $(BUILD_DIR)/src/game
+	mkdir -p $(BUILD_DIR)/assets
+
+extract: require-tools dirs
 		$(SPLAT) $(CONFIG_DIR)/splat.sces028.yml
 $(CONFIG_DIR)/symbols.%.txt:
 
 decompile: $(M2C_APP)
 		$(M2CTX) src/game/4D58.c
 		$(M2C) $(M2C_ARGS) --target mipsel-gcc-c --context ctx.c asm/game/nonmatchings/4D58/$(FUNC).s
-	
+
 require-tools: $(SPLAT_APP) $(ASMDIFFER_APP)
 update-dependencies: require-tools $(M2CTX_APP) $(M2C_APP)
 		pip3 install -r $(TOOLS_DIR)/requirements.txt
@@ -136,13 +144,13 @@ $(M2C_APP):
 $(MASPSX_APP):
 		git submodule init $(MASPSX_DIR)
 		git submodule update $(MASPSX_DIR)
-		
+
 $(BUILD_DIR)/%.s.o: %.s
 	$(AS) $(AS_FLAGS) -o $@ $<
 $(BUILD_DIR)/%.bin.o: %.bin
 	$(LD) -r -b binary -o -Map %.map $@ $<
 $(BUILD_DIR)/%.c.o: %.c $(MASPSX_APP)
-	$(CPP) $(CPP_FLAGS) $< | $(CC) $(CC_FLAGS) | $(MASPSX) $(MASPSX_ARGS) | $(AS) $(AS_FLAGS) -o $@
+	$(CPP) $(CPP_FLAGS) $< | $(CC) $(CC_FLAGS) | $(MASPSX) $(MASPSX_ARGS)  | $(AS) $(AS_FLAGS) -o $@ -G2
 
 SHELL = /bin/bash -e -o pipefail
 
