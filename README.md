@@ -1,6 +1,17 @@
 # open-ribbon
-vib-ribbon decompilation (PAL version)
+This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン)  [PAL]
 
+## Who is working on this project
+You can join our [Discord Server](https://discord.gg/n5TPTBvGjE) to talk with us about the project
+
+Poly | **Creator of the repo** | Discord: polyproxy
+
+xPyth | **Collaborator** | Discord: xPyth
+
+You | **Are you the next one ?** | 
+
+
+#
 ## How to build
 
  1. Run `make extract` to generate the assembly files in the `asm/` directory
@@ -10,6 +21,7 @@ In case there are any changes in the `config/` folder, you might need to run `ma
 
 Some non-matching functions are present in the source preprocessed by the macro `NON_MATCHING`. You can still compile the game binaries by running `CPP_FLAGS=-DNON_MATCHING make`. In theory they might be logically equivalent in-game, but I cannot promise that. Few of them could match by tuning or changing the compiler.
 
+#
 ## How to decompile
 
 1. Run `make clean extract all expected` at least once
@@ -28,6 +40,7 @@ There are a few tricks to make the process more streamlined:
 1. Use [this](https://github.com/mkst/sssv/wiki/Jump-Tables) and [this](https://github.com/pmret/papermario/wiki/GCC-2.8.1-Tips-and-Tricks) guide to understand how some compiler patterns work
 1. Use the `#ifndef NON_MATCHING` if your code is logically equivalent but you cannot yet fully match it
 
+#
 ## Troubleshooting
 
 ### Not getting an "OK" on Ubuntu 22.04
