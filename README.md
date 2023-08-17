@@ -1,17 +1,6 @@
 # open-ribbon
 This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン)  [PAL]
 
-## Who is working on this project
-You can join our [Discord Server](https://discord.gg/n5TPTBvGjE) to talk with us about the project
-
-Poly | **Creator of the repo** | Discord: polyproxy
-
-xPyth | **Collaborator** | Discord: xPyth
-
-You | **Are you the next one ?** | 
-
-
-#
 ## How to build
 
  1. Run `make extract` to generate the assembly files in the `asm/` directory
@@ -34,11 +23,11 @@ You will probably have some differences from your compiled code to the original;
 
 There are a few tricks to make the process more streamlined:
 
-1. Use [decomp.me](https://decomp.me/) with the PSY-Q 4.5 compiler.
+1. Use [decomp.me](https://decomp.me/) with the vib-ribbon preset.
 1. The “context” section of decomp.me, is provided by the previous command `make decompile` as mentioned in the how to decompile.
-1. Use [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) to solve some mismatches
-1. Use [this](https://github.com/mkst/sssv/wiki/Jump-Tables) and [this](https://github.com/pmret/papermario/wiki/GCC-2.8.1-Tips-and-Tricks) guide to understand how some compiler patterns work
-1. Use the `#ifndef NON_MATCHING` if your code is logically equivalent but you cannot yet fully match it
+1. Use [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) to solve some mismatches.
+1. Use [this](https://github.com/mkst/sssv/wiki/Jump-Tables) and [this](https://github.com/pmret/papermario/wiki/GCC-2.8.1-Tips-and-Tricks) guide to understand how some compiler patterns work.
+1. Use the `#ifndef NON_MATCHING` if your code is logically equivalent but you cannot yet fully match it.
 
 #
 ## Troubleshooting
@@ -52,3 +41,14 @@ curl -L -o binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb http://ftp.de.debi
 dpkg -i binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 ```
+
+#
+## Contributors
+
+| Avatar | Username |
+| ------ | -------- |
+| ![](https://avatars.githubusercontent.com/u/47796739?s=64) | [polybiusproxy](https://github.com/polybiusproxy)
+| ![](https://avatars.githubusercontent.com/u/22226349?s=64) | [mkst](https://github.com/mkst)
+| ![](https://avatars.githubusercontent.com/u/52961795?s=64) | [xPythh](https://github.com/xPythh)
+
+You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
