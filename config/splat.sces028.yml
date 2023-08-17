@@ -1,40 +1,76 @@
 name: vib-ribbon (Europe)
 options:
-    # paths
-    basename:    vib-ribbon
-    base_path:   ..
-    target_path: iso/MAIN_T.EXE
-    asm_path:    asm/game/
-    asset_path:  assets/
-    src_path:    src/game/
-    
-    # compiler
-    platform:    psx
-    compiler:    GCC
-    
-    # disasm
-    symbol_addrs_path:           config/symbols.sces028.txt
-    undefined_funcs_auto_path:   config/undefined_funcs_auto.sces028.vib-ribbon.txt
-    undefined_syms_auto_path:    config/undefined_syms_auto.sces028.vib-ribbon.txt
-    find_file_boundaries:        yes
-    use_legacy_include_asm:      no
-    migrate_rodata_to_functions: no
-    disasm_unknown:              yes
+  # paths
+  basename:    vib-ribbon
+  base_path:   ..
+  target_path: iso/MAIN_T.EXE
+  asm_path:    asm/game/
+  asset_path:  assets/
+  src_path:    src/game/
+
+  # compiler
+  platform:    psx
+  compiler:    GCC
+
+  # disasm
+  symbol_addrs_path:           config/symbols.sces028.txt
+  undefined_funcs_auto_path:   config/undefined_funcs_auto.sces028.vib-ribbon.txt
+  undefined_syms_auto_path:    config/undefined_syms_auto.sces028.vib-ribbon.txt
+  find_file_boundaries:        yes
+  use_legacy_include_asm:      no
+  migrate_rodata_to_functions: no
+  disasm_unknown:              yes
+
+  section_order:
+    - .rodata
+    - .text
+    - .data
+    - .bss
+
 segments:
-    - [0, header]
-    - name:  vib-ribbon
-      type:  code
-      start: 0x00000800
-      vram:  0x80019000
-      subalign: 4
-      subsegments:
-        - [0x800, rodata] # rodata
-        - [0x4D58, c]     # text
-        - [0x13778, asm, entrypoint]
-        - [0x13868, c, psyq]
-        - [0x27118, data] # data
-        - [0x2F6C0, data] # sdata
-        - [0x2F964, data] # sbss
-        - [0x2F970, data] # bss
-        #- [0x2F92C, data] # bss
-    - [0x30000]
+  - [0, header]
+  - name:  vib-ribbon
+    type:  code
+    start: 0x00000800
+    vram:  0x80019000
+    subalign: 4
+    subsegments:
+      - [0x800, rodata] # rodata
+      - [0x1070, rodata]
+      - [0x15C0, rodata]
+      - [0x1810, rodata]
+      - [0x3F5C, rodata]
+      - [0x4264, rodata]
+      - [0x42A4, rodata]
+      - [0x4304, rodata]
+      - [0x432C, rodata]
+      - [0x43E4, rodata]
+      - [0x4604, rodata]
+      - [0x46F4, rodata]
+      - [0x4C44, rodata]
+      - [0x4C60, rodata]
+      - [0x4D58, c]     # text
+      - [0xF2DC, c]
+      - [0x13778, asm, entrypoint]
+      - [0x13868, asm, psyq]
+      - [0x13F18, asm]
+      - [0x14348, asm]
+      - [0x14428, asm]
+      - [0x144A8, asm]
+      - [0x19648, asm]
+      - [0x19958, asm]
+      - [0x19CD8, asm]
+      - [0x1D998, asm]
+      - [0x1D9C8, asm]
+      - [0x22CC8, asm]
+      - [0x22E28, asm]
+      - [0x23138, asm]
+      - [0x23168, asm]
+      - [0x23178, asm]
+      - [0x23188, asm]
+      - [0x27118, data] # data
+      - [0x2F6C0, data] # sdata
+      - [0x2F964, data] # sbss
+      - [0x2F970, data] # bss
+      #- [0x2F92C, data] # bss
+  - [0x30000]
