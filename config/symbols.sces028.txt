@@ -1,3 +1,22 @@
+// C++ Functions
+// When this is added, the Assembly try to call 
+//  the old functions name, resulting in shit hitting the fan
+//    undefined reference to `func_80030914'    AKA   printf    AKA ASSEMBLY   jal func_80030914
+//    
+
+// printf = 0x80030914;
+// exit = 0x80030914;
+
+// PSX Custom Functions 
+SwEnterCriticalSection = 0x80030924;
+SwExitCriticalSection = 0x80030480;
+
+// Core Program
+main = 0x800233C0;
+start = 0x8002BF78;
+
+
+// VideoSys
 VideoSys__FlipBuffer = 0x8001D558;
 VideoSys__OnDrawSync = 0x8001D584;
 VideoSys__OnVSync = 0x8001D58C;
@@ -12,8 +31,6 @@ VideoSys__AddVSyncCB = 0x8001E358;
 VideoSys__RemoveVSyncCB = 0x8001E410;
 VideoSys__alloc = 0x8001E488;
 VideoSys__SetProjection = 0x80022EE8;
-main = 0x800233C0;
-start = 0x8002BF78;
 
 ResetGraph = 0x8002CDE8;
 Clip3F = 0x80035CAC;
@@ -26,3 +43,12 @@ evbfad = 0x8003FEE0;
 evmx = 0x800401A0;
 HWD0 = 0x800481E8;
 VWD0 = 0x800481EC;
+
+// CdSys
+CdSys__Unk00 = 0x8001F048;
+CdSys__Unk01 = 0x8001EFEC;
+ 
+CdSys__Unk00MemAdd = 0x80047F4C;
+CdSys__Unk01MemAdd = 0x80047F48;
+
+
