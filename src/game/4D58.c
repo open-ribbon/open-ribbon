@@ -2,9 +2,16 @@
 
 #include <psyq/LIBGTE.H>
 
-extern HWD0;
-extern VWD0;
+extern int HWD0; // FIXED a Warning
+extern int VWD0; // FIXED a Warning
 extern EVECTOR evbfad;
+extern void GsSetProjection(int h);
+
+
+//void SwEnterCriticalSection();
+//void SwExitCriticalSection();
+extern int CdSys__Unk00MemAdd;
+extern int CdSys__Unk01MemAdd;
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__FlipBuffer);
 
@@ -61,9 +68,42 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8001ED44);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8001ED6C);
 
-INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8001EFEC);
+/*
+FIXME: ?
+												   undefined reference to `SwEnterCriticalSection'
+mips-linux-gnu-ld: src/game/4D58.c:(.text+0x1b2c): undefined reference to `printf'
+mips-linux-gnu-ld: src/game/4D58.c:(.text+0x1b34): undefined reference to `exit'
+mips-linux-gnu-ld: src/game/4D58.c:(.text+0x1b44): undefined reference to `SwExitCriticalSection'
+*/
 
+#if 0
+void func_8001EFEC(s32 *arg0) { /* CdSys__Unk00 */
+    SwEnterCriticalSection();
+
+    if (CdSys__Unk00MemAdd)
+    {
+        printf("Assertion failed: file \"%s\", line %d\n", "C:/psj/dev/locale/game/CdSys.cpp", 511);
+        exit(1);
+    }
+    CdSys__Unk00MemAdd = arg0;
+    SwExitCriticalSection();
+}
+
+void func_8001F048(s32 arg0) { /* CdSys__Unk01 */
+    SwEnterCriticalSection();
+
+    if (CdSys__Unk01MemAdd)
+    {
+        printf("Assertion failed: file \"%s\", line %d\n", "C:/psj/dev/locale/game/CdSys.cpp", 511);
+        exit(1);
+    }
+    CdSys__Unk01MemAdd = arg0;
+    SwExitCriticalSection();
+}
+#else
+INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8001EFEC); 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8001F048);
+#endif
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8001F0A4);
 
@@ -268,7 +308,7 @@ extern EVECTOR* evmx[]; /* evmx */
 
 s32 func_80023060(SVECTOR* vec1, SVECTOR* vec2)
 {
-    if (Clip3F(vec1, vec2, vec2, &evmx) >= 2)
+    if (Clip3F(vec1, vec2, vec2, evmx) >= 2)
     {
         *vec1 = evmx[0]->v;
         *vec2 = evmx[1]->v;
