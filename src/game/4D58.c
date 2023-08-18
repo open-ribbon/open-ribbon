@@ -3,7 +3,7 @@
 extern s32 buffer_i;
 
 void VideoSys__FlipBuffer() {
-		buffer_i = (buffer_i + 1) % 2;
+	buffer_i = (buffer_i + 1) % 2;
 }
 
 void VideoSys__OnDrawSync(void) {}
@@ -20,7 +20,11 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Flip);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__WriteFnt);
 
-INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__DisplayFnt);
+extern s32 fntStream;
+
+void VideoSys__DisplayFnt() {
+	FntFlush(fntStream);
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__GetOT);
 
