@@ -1,6 +1,14 @@
 # open-ribbon
 This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン)  [PAL]
 
+## Progress
+
+| Version      | File name  | Progress
+|--------------|------------|----------
+| `SCES-02873` | `MAIN_T.EXE` | ![progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/polybiusproxy/open-ribbon/gh-report/assets/progress-sces028.json)
+| `SCES-02873` | `MAIN_K.EXE`  | N/A 
+| `SCES-02873` | `MAIN_G.EXE`  | N/A 
+
 ## How to build
 
  1. Run `make extract` to generate the assembly files in the `asm/` directory
