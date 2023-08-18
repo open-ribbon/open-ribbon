@@ -24,13 +24,10 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Flip);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__WriteFnt);
 
-#if 1
+extern s32 fntStream;
 void VideoSys__DisplayFnt() {
-    FntFlush(fntStream); // FntFlush() isn
+	FntFlush(fntStream);
 }
-#else
-INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__DisplayFnt);
-#endif
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__GetOT);
 
