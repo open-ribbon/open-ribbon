@@ -2,8 +2,8 @@
 
 #include <psyq/LIBGTE.H>
 
-extern HWD0;
-extern VWD0;
+extern int HWD0;
+extern int VWD0;
 extern EVECTOR evbfad;
 
 
@@ -237,7 +237,7 @@ extern EVECTOR* evmx[]; /* evmx */
 
 s32 func_80023060(SVECTOR* vec1, SVECTOR* vec2)
 {
-    if (Clip3F(vec1, vec2, vec2, &evmx) >= 2)
+    if (Clip3F(vec1, vec2, vec2, evmx) >= 2)
     {
         *vec1 = evmx[0]->v;
         *vec2 = evmx[1]->v;
