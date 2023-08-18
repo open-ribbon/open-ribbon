@@ -34,6 +34,7 @@ InitClip = 0x80035E1C;
 rcos = 0x80035F3C;
 rsin = 0x80035FDC;
 
+vsync = 0x8003F958;
 evbfad = 0x8003FEE0;
 evmx = 0x800401A0;
 HWD0 = 0x800481E8;

@@ -14,7 +14,7 @@ CPP             := $(CROSS)cpp
 OBJCOPY         := $(CROSS)objcopy
 AS_FLAGS        += -Iinclude -march=r3000 -mtune=r3000 -no-pad-sections -Os
 
-CC_FLAGS        =  -Iinclude -mips1 -mcpu=3000 -quiet -Wall -fno-builtin -mno-abicalls -fsigned-char -G8 -Os -gcoff
+CC_FLAGS        =  -Iinclude -mips1 -mcpu=3000 -quiet -Wall -fno-builtin -mno-abicalls -fsigned-char -G4 -Os -gcoff
 CC_FLAGS        += -mel -fpeephole -ffunction-cse -fkeep-static-consts -fpcc-struct-return -fcommon -fgnu-linker -fargument-alias -msplit-addresses -mgas -mgpOPT -mgpopt -msoft-float -mcpu=r3000
 
 CPP_FLAGS        = -Iinclude -Iinclude/psyq -undef -Wall -lang-c -fno-builtin -gstabs

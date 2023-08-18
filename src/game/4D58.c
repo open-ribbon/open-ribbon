@@ -1,18 +1,34 @@
 #include "common.h"
 
+typedef void (*VSyncCb)();
+struct VSyncCbList
+{
+	VSyncCb *cb;
+	VSyncCb tail;
+};
+
+extern struct VSyncCbList vsync;
 extern s32 buffer_i;
 
-extern int fntStream;
-extern void FntFlush();
-
-
-void VideoSys__FlipBuffer() {
+void VideoSys__FlipBuffer() 
+{
 	buffer_i = (buffer_i + 1) % 2;
 }
 
 void VideoSys__OnDrawSync() {}
 
-INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__OnVSync);
+// matched by Estex (thank you!)
+void VideoSys__OnVSync()
+{
+	VSyncCb* cb;
+	
+	for (cb = vsync.cb; cb < vsync.tail; cb++)
+	{
+		(*cb)();
+	}
+}
+
+//INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__OnVSync);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Init);
 
@@ -25,7 +41,8 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Flip);
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__WriteFnt);
 
 extern s32 fntStream;
-void VideoSys__DisplayFnt() {
+void VideoSys__DisplayFnt() 
+{
 	FntFlush(fntStream);
 }
 
