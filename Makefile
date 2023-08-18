@@ -61,6 +61,13 @@ MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
 MASPSX          := $(PYTHON) $(MASPSX_APP)
 MASPSX_ARGS     := --no-macro-inc --expand-div
 
+# overrides
+
+AS_DATA = -G0
+
+$(BUILD_DIR)/src/game/5CE4.c.o: AS_DATA := -G2
+$(BUILD_DIR)/src/game/4D58.c.o: AS_DATA := -G4
+
 define list_src_files
 		$(foreach dir, $(ASM_DIR)/game,			$(wildcard $(dir)/**.s))
 		$(foreach dir, $(ASM_DIR)/game/data,	$(wildcard $(dir)/**.s))
@@ -77,6 +84,7 @@ define link
 			-T $(1).ld \
 			-T $(CONFIG_DIR)/undefined_syms_auto.$(BUILD).$(1).txt \
 			-T $(CONFIG_DIR)/undefined_funcs_auto.$(BUILD).$(1).txt \
+			-T $(CONFIG_DIR)/undefined_funcs.$(BUILD).$(1).txt \
 			--no-check-sections \
 			-nostdlib \
 			-s
@@ -150,7 +158,7 @@ $(BUILD_DIR)/%.s.o: %.s
 $(BUILD_DIR)/%.bin.o: %.bin
 	$(LD) -r -b binary -o -Map %.map $@ $<
 $(BUILD_DIR)/%.c.o: %.c $(MASPSX_APP)
-	$(CPP) $(CPP_FLAGS) $< | $(CC) $(CC_FLAGS) | $(MASPSX) $(MASPSX_ARGS)  | $(AS) $(AS_FLAGS) -o $@ -G2
+	$(CPP) $(CPP_FLAGS) $< | $(CC) $(CC_FLAGS) | $(MASPSX) $(MASPSX_ARGS)  | $(AS) $(AS_FLAGS) $(AS_DATA) -o $@
 
 SHELL = /bin/bash -e -o pipefail
 
