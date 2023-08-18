@@ -1,6 +1,6 @@
 // PsyQ functions
 
-// printf = 0x80030914;
+// printf = 0x80030674;
 // exit = 0x80030914;
 // SwEnterCriticalSection = 0x80030924;
 // SwExitCriticalSection = 0x80030480;

@@ -1,5 +1,7 @@
 #include "common.h"
 
+#include "globals.h"
+
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80027ADC);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028A88);
@@ -22,16 +24,13 @@ INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028E74);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028EEC);
 
-void func_80028F44(void) {
-}
+void func_80028F44(void) {}
 
-void func_80028F4C(void) {
-}
+void func_80028F4C(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028F54);
 
-void func_80028F5C(void) {
-}
+void func_80028F5C(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028F64);
 
@@ -53,8 +52,7 @@ INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80029A38);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80029A80);
 
-void func_80029ADC(void) {
-}
+void func_80029ADC(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80029AE4);
 

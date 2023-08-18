@@ -1,14 +1,6 @@
 #include "common.h"
 
-typedef void (*VSyncCb)();
-struct VSyncCbList
-{
-	VSyncCb *cb;
-	VSyncCb tail;
-};
-
-extern struct VSyncCbList vsync;
-extern s32 buffer_i;
+#include "globals.h"
 
 void VideoSys__FlipBuffer() 
 {
@@ -16,6 +8,7 @@ void VideoSys__FlipBuffer()
 }
 
 void VideoSys__OnDrawSync() {}
+
 
 // matched by Estex (thank you!)
 void VideoSys__OnVSync()
@@ -27,7 +20,6 @@ void VideoSys__OnVSync()
 		(*cb)();
 	}
 }
-
 //INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__OnVSync);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Init);
@@ -40,11 +32,14 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Flip);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__WriteFnt);
 
-extern s32 fntStream;
-void VideoSys__DisplayFnt() 
+
+/*void VideoSys__DisplayFnt() 
 {
 	FntFlush(fntStream);
-}
+}*/
+INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__DisplayFnt);
+
+
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__GetOT);
 

@@ -1,13 +1,9 @@
 #include "common.h"
 
+#include "globals.h"
+
 #include <psyq/LIBGTE.H>
-
-extern s32 HWD0;
-extern s32 VWD0;
-extern EVECTOR evbfad;
-
-extern void FntFlush();
-extern void GsSetProjection(s32);
+#include <psyq/STDIO.h>
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E4E4);
 
@@ -39,7 +35,23 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001ED6C);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001EFEC);
 
+// CdSys__Unk00
+#if 0
+void func_8001F048(int *arg0)
+{
+    SwEnterCriticalSection();
+
+    if (CdSys__Unk00MemAdd)
+    {
+        printf("Assertion failed: file \"%s\", line %d\n", "C:/psj/dev/locale/game/CdSys.cpp", 511);
+        exit(1);
+    }
+    CdSys__Unk00MemAdd = arg0;
+    SwExitCriticalSection();
+}
+#else
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F048);
+#endif
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F0A4);
 
@@ -229,9 +241,6 @@ void VideoSys__SetProjection(s32 h)
 	GsSetProjection(proj);
 	InitClip(&evbfad, HWD0 + 8, VWD0 + 8, proj, proj / 2, 0xFFFF);
 }
-
-s32 func_80035CAC(SVECTOR *v0, SVECTOR *v1, SVECTOR *v2, EVECTOR **evmx); /* Clip3F */
-extern EVECTOR* evmx[]; /* evmx */
 
 s32 func_80023060(SVECTOR* vec1, SVECTOR* vec2)
 {
