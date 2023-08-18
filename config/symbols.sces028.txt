@@ -1,15 +1,8 @@
-// C++ Functions
-// When this is added, the Assembly try to call 
-//  the old functions name, resulting in shit hitting the fan
-//    undefined reference to `func_80030914'    AKA   printf    AKA ASSEMBLY   jal func_80030914
-//    
-
+  // PSX Custom Functions 
 // printf = 0x80030914;
 // exit = 0x80030914;
-
-// PSX Custom Functions 
-SwEnterCriticalSection = 0x80030924;
-SwExitCriticalSection = 0x80030480;
+// SwEnterCriticalSection = 0x80030924;
+// SwExitCriticalSection = 0x80030480;
 
 // Core Program
 main = 0x800233C0;
@@ -45,10 +38,5 @@ HWD0 = 0x800481E8;
 VWD0 = 0x800481EC;
 
 // CdSys
-CdSys__Unk00 = 0x8001F048;
-CdSys__Unk01 = 0x8001EFEC;
- 
 CdSys__Unk00MemAdd = 0x80047F4C;
 CdSys__Unk01MemAdd = 0x80047F48;
-
-
