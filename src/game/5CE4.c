@@ -2,8 +2,8 @@
 
 #include <psyq/LIBGTE.H>
 
-extern int HWD0;
-extern int VWD0;
+extern s32 HWD0;
+extern s32 VWD0;
 extern EVECTOR evbfad;
 
 
