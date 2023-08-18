@@ -15,8 +15,7 @@ extern int CdSys__Unk01MemAdd;
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__FlipBuffer);
 
-void VideoSys__OnDrawSync(void) {
-}
+void VideoSys__OnDrawSync(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__OnVSync);
 
@@ -189,8 +188,7 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_800207C4);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_800207D0);
 
-void func_800208BC(void) {
-}
+void func_800208BC(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_800208C4);
 
@@ -212,8 +210,7 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80021608);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_800216FC);
 
-void func_80021758(void) {
-}
+void func_80021758(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80021760);
 
@@ -259,8 +256,7 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_8002254C);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022594);
 
-void func_80022658(void) {
-}
+void func_80022658(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022660);
 
@@ -268,8 +264,7 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022824);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022968);
 
-void func_80022A58(void) {
-}
+void func_80022A58(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80022A60);
 
@@ -350,8 +345,7 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023A88);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023A94);
 
-void func_80023AF0(void) {
-}
+void func_80023AF0(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80023AF8);
 
@@ -371,8 +365,7 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", func_800246EC);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80024820);
 
-void func_8002487C(void) {
-}
+void func_8002487C(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", func_80024884);
 
