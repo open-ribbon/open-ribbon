@@ -6,8 +6,7 @@ void VideoSys__FlipBuffer() {
 		buffer_i = (buffer_i + 1) % 2;
 }
 
-void VideoSys__OnDrawSync(void) {
-}
+void VideoSys__OnDrawSync(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__OnVSync);
 
