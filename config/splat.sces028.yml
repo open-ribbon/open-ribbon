@@ -21,6 +21,8 @@ options:
   migrate_rodata_to_functions: no
   disasm_unknown:              yes
 
+  gp_value: 0x80047EB8
+
   section_order:
     - .rodata
     - .text
@@ -50,6 +52,7 @@ segments:
       - [0x4C44, rodata]
       - [0x4C60, rodata]
       - [0x4D58, c]     # text
+      - [0x5CE4, c]
       - [0xF2DC, c]
       - [0x13778, asm, entrypoint]
       - [0x13868, asm, psyq]
