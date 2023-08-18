@@ -1,4 +1,4 @@
-  // PSX Custom Functions 
+// PSX Custom Functions 
 // printf = 0x80030914;
 // exit = 0x80030914;
 // SwEnterCriticalSection = 0x80030924;
@@ -36,6 +36,10 @@ evbfad = 0x8003FEE0;
 evmx = 0x800401A0;
 HWD0 = 0x800481E8;
 VWD0 = 0x800481EC;
+
+fntStream = 0x80047F08;
+FntFlush = 0x8002F724;
+
 
 // CdSys
 CdSys__Unk00MemAdd = 0x80047F4C;
