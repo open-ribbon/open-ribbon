@@ -32,14 +32,11 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Flip);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__WriteFnt);
 
-
 void VideoSys__DisplayFnt() 
 {
 	FntFlush(fntStream);
 }
 // INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__DisplayFnt);
-
-
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__GetOT);
 

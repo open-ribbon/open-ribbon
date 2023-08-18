@@ -83,7 +83,11 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F86C);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F8E8);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F90C);
+// INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F90C);
+s32 func_8001F90C(s32 arg0)
+{
+    return AudioSys__IsTransferCompleted(arg0 != 0) != 0;
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F92C);
 

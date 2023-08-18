@@ -47,3 +47,6 @@ FntFlush = 0x8002F724;
 // CdSys
 CdSys__Unk00MemAdd = 0x80047F4C;
 CdSys__Unk01MemAdd = 0x80047F48;
+
+// AudioSys
+AudioSys__IsTransferCompleted = 0x800330D4;
