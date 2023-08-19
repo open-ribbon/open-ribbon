@@ -10,6 +10,9 @@ void SwExitCriticalSection();
 
 void FntFlush();
 void GsSetProjection(s32);
+s32 SetDispMask(s32);
+s32 Vsync(s32);
+s32 ResetGraph(s32);
 
 void SpuQuit();
 s32 SpuIsTransferCompleted(s32);

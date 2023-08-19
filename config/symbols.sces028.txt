@@ -1,4 +1,6 @@
-// PsyQ functions (By Compiler)
+//	PsyQ Functions & Variables (By Compiler)
+//	You can check if a a func/var is a compiler one here:
+//	https://psx.arthus.net/sdk/Psy-Q/DOCS/Devrefs/Libref.pdf
 printf = 0x80030674;		  // Print formatted output
 exit = 0x80030914;			  // Terminate a program normally
 SwEnterCriticalSection = 0x80030924; 	// uppresses interrupts
@@ -14,6 +16,9 @@ rcos = 0x80035F3C;			  // Finds the cosine function of the angle
 rsin = 0x80035FDC;			  // Finds the sine function of the angle
 HWD0 = 0x800481E8;			  // Horizontal resolution
 VWD0 = 0x800481EC;			  // Vertical resolution
+SetDispMask = 0x8002CFBC;     // Puts display mask into the status specified by mask
+VSync = 0x800309E4;			  // Wait for the next vertical blank, or return the vertical blank counter value.
+
 
 // Core Program
 main = 0x800233C0;

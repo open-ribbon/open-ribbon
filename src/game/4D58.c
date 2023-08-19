@@ -24,7 +24,13 @@ INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Init);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Quit);
 
-INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Reset);
+void VideoSys__Reset() 
+{
+    ResetGraph(1);
+    VSync(0);
+    SetDispMask(0);
+}
+// INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Reset);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Flip);
 
