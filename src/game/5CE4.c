@@ -3,7 +3,7 @@
 #include "globals.h"
 
 #include <psyq/LIBGTE.H>
-#include <psyq/STDIO.h>
+#include <psyq/STDIO.H>
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E4E4);
 
