@@ -9,8 +9,17 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E4E4);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E658);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E744);
 
+// FontHack::Dtor
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E744);
+/*void func_8001E744() 
+{
+    FontHack__Unk00(FontHack_Instance, 2);
+    if (&vsync_cb_end - &vsync_cb)
+        MemorySys__Free(&vsync_cb); // MemorySys__Free
+}*/
+
+// *FontHack::Ctor
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E798);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E7E8);
@@ -35,8 +44,7 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001ED6C);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001EFEC);
 
-// CdSys__Unk00
-#if 0
+/* CdSys__Unk00 [Error when implementing]
 void func_8001F048(int *arg0)
 {
     SwEnterCriticalSection();
@@ -49,15 +57,19 @@ void func_8001F048(int *arg0)
     CdSys__Unk00MemAdd = arg0;
     SwExitCriticalSection();
 }
-#else
+*/
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F048);
-#endif
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F0A4);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F0D4);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F108);
+void AudioSys__QuitSpu() {
+    VideoSys__RemoveVSyncCB(&AudioSys__CallBack);
+    UnknownFunction00();
+    SpuQuit();
+}
+// INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__QuitSpu);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F13C);
 
@@ -83,17 +95,28 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F86C);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F8E8);
 
-// INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F90C);
-s32 func_8001F90C(s32 arg0)
+s32 AudioSys__IsTransferCompleted(s32 arg0)
 {
-    return AudioSys__IsTransferCompleted(arg0 != 0) != 0;
+    return SpuIsTransferCompleted(arg0 != 0) != 0;
 }
+// INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__IsTransferCompleted);
 
+/* FIXME:
+void func_8001F92C(s32 int* arg0, char* arg1) {
+    signed int sndBuf;
+
+    sndBuf = arg0[5];
+    arg0[6] = &unkVar;
+    if ( sndBuf >= 0 )
+        SpuFree(sndBuf);
+    func_8001F6F0(arg0, arg1); // <- sub is only in ida, i renamed it to func
+}
+*/
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F92C);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F980);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FA08);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", UnknownFunction00);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FA7C);
 
@@ -107,7 +130,7 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FE34);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FE8C);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FED4);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__CallBack);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020004);
 

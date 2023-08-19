@@ -9,13 +9,11 @@ void VideoSys__FlipBuffer()
 
 void VideoSys__OnDrawSync() {}
 
-
-// matched by Estex (thank you!)
 void VideoSys__OnVSync()
 {
 	VSyncCb* cb;
 	
-	for (cb = vsync.cb; cb < vsync.tail; cb++)
+	for (cb = vsync.cb; cb < (VSyncCb*)vsync.tail; cb++)
 	{
 		(*cb)();
 	}

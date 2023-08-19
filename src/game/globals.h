@@ -2,15 +2,17 @@
 
 #include <psyq/LIBGTE.H>
 
-//
-// extern void exit(s32);
-// extern int printf(const char* format, ...);
+void exit(s32);
+s32 printf(char* format, ...);
 
-// extern void SwEnterCriticalSection();
-// extern void SwExitCriticalSection();
+void SwEnterCriticalSection();
+void SwExitCriticalSection();
 
-// extern void FntFlush();
-// extern void GsSetProjection(s32);
+void FntFlush();
+void GsSetProjection(s32);
+
+void SpuQuit();
+s32 SpuIsTransferCompleted(s32);
 
 extern s32 buffer_i;
 extern s32 fntStream;
@@ -24,6 +26,9 @@ extern EVECTOR evbfad;
 extern s32 CdSys__Unk00MemAdd;
 extern s32 CdSys__Unk01MemAdd;
 
+struct VSyncCb{};
+extern struct VSyncCb vsync_cb;
+extern struct VSyncCb vsync_cb_end;
 
 typedef void (*VSyncCb)();
 struct VSyncCbList
@@ -32,3 +37,15 @@ struct VSyncCbList
 	VSyncCb tail;
 };
 extern struct VSyncCbList vsync;
+
+
+typedef struct {} FAInstance;
+extern struct FAInstance* FontHack_Instance;
+
+
+extern int AudioSys__CallBack();
+extern void VideoSys__RemoveVSyncCB(void *callback);
+
+
+// No origin established yet
+extern void UnknownFunction00();

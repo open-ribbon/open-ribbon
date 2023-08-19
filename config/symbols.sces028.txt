@@ -1,10 +1,11 @@
 // PsyQ functions
 
-// printf = 0x80030674;
-// exit = 0x80030914;
-// SwEnterCriticalSection = 0x80030924;
-// SwExitCriticalSection = 0x80030480;
-
+printf = 0x80030674;
+exit = 0x80030914;
+SwEnterCriticalSection = 0x80030924;
+SwExitCriticalSection = 0x80030480;
+SpuQuit = 0x80033184;
+SpuIsTransferCompleted = 0x800330D4;
 // Core Program
 main = 0x800233C0;
 start = 0x8002BF78;
@@ -26,6 +27,7 @@ VideoSys__RemoveVSyncCB = 0x8001E410;
 VideoSys__alloc = 0x8001E488;
 VideoSys__SetProjection = 0x80022EE8;
 
+
 ResetGraph = 0x8002CDE8;
 FntFlush = 0x8002F724;
 Clip3F = 0x80035CAC;
@@ -43,10 +45,25 @@ VWD0 = 0x800481EC;
 fntStream = 0x80047F08;
 FntFlush = 0x8002F724;
 
+vsync_cb = 0x8003F958;
+vsync_cb_end = 0x8003F960;
 
 // CdSys
 CdSys__Unk00MemAdd = 0x80047F4C;
 CdSys__Unk01MemAdd = 0x80047F48;
 
+
 // AudioSys
-AudioSys__IsTransferCompleted = 0x800330D4;
+AudioSys__QuitSpu = 0x8001F108;
+AudioSys__IsTransferCompleted = 0x8001F90C;
+AudioSys__UnknownVar = 0x8001917C;
+AudioSys__CallBack = 0x8001FED4;
+
+
+// FontHack
+// FontHack_Instance = 0x80047ED4;
+// FontHack__Unk00 = 0x8002AF90;
+// MemorySys__Free = 0x80021A50;
+
+// No origin established yet
+UnknownFunction00 = 0x8001FA08;
