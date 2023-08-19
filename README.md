@@ -1,5 +1,7 @@
 # open-ribbon
 This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン)  [PAL]
+Its main objective is to obtain the source code back of the game.
+Interested in helping ? Feel free to join our Discord Server ! Everyone is Welcome.
 
 ## Progress
 
@@ -57,10 +59,11 @@ rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 ## Contributors
 
 | Avatar | Username |
-| ------ | -------- |
+| ------ | -------- | 
 | ![](https://avatars.githubusercontent.com/u/47796739?s=64) | [polybiusproxy](https://github.com/polybiusproxy)
+| ![](https://avatars.githubusercontent.com/u/52961795?s=64) | [xPythh](https://github.com/xPythh) |
 | ![](https://avatars.githubusercontent.com/u/22226349?s=64) | [mkst](https://github.com/mkst)
-| ![](https://avatars.githubusercontent.com/u/52961795?s=64) | [xPythh](https://github.com/xPythh)
+| ![](https://i.imgur.com/vtsmp8m.png) 						 | [polybiusproxy](https://github.com/unclamped) 
 
 You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
 
