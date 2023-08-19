@@ -5,6 +5,7 @@ MAINT           := MAIN_T
 
 # compilers
 GCC             := ./bin/gcc -c -B./bin/
+CC              := ./bin/cc1 -quiet
 
 CROSS           := mips-linux-gnu-
 AS              := $(CROSS)as -EL -32 -march=r3000 -mtune=r3000 -msoft-float -no-pad-sections -Iinclude/
@@ -13,7 +14,8 @@ CPP             := $(CROSS)cpp
 OBJCOPY         := $(CROSS)objcopy
 MODERN_GCC      := gcc
 
-AS_FLAGS        := -Wa,-EL,-march=r3000,-mtune=r3000,-msoft-float,-no-pad-sections,-Iinclude
+# AS_FLAGS        := -Wa,-EL,-march=r3000,-mtune=r3000,-msoft-float,-no-pad-sections,-Iinclude
+AS_FLAGS        := -Iinclude -march=r3000 -mtune=r3000 -no-pad-sections -Os
 
 CPP_FLAGS       := -Iinclude -Iinclude/psyq
 CPP_FLAGS       += -undef -lang-c -Wall -fno-builtin -fsigned-char
@@ -64,6 +66,7 @@ M2C_ARGS        := -P 4
 MASPSX_DIR      := $(TOOLS_DIR)/maspsx
 MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
 MASPSX          := $(PYTHON) $(MASPSX_APP)
+MASPSX_ARGS     := --expand-div --no-macro-inc
 
 # flags
 SDATA_LIMIT     := -G4
@@ -165,7 +168,8 @@ $(BUILD_DIR)/%.bin.o: %.bin
 
 $(BUILD_DIR)/%.c.o: %.c $(MASPSX_APP)
 	@$(CC_CHECK) $<
-	$(GCC) $(CC_FLAGS) $(SDATA_LIMIT) $(OPT_FLAGS) $(AS_FLAGS),$(AS_SDATA_LIMIT) $< -o $@
+	# $(GCC) $(CC_FLAGS) $(SDATA_LIMIT) $(OPT_FLAGS) $(AS_FLAGS),$(AS_SDATA_LIMIT) $< -o $@
+	$(CPP) $(CPP_FLAGS) $< | $(CC) $(CC_FLAGS) $(OPT_FLAGS) $(SDATA_LIMIT) | $(MASPSX) $(MASPSX_ARGS) | $(AS) $(AS_SDATA_LIMIT) -o $@
 
 SHELL = /bin/bash -e -o pipefail
 
