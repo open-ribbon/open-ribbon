@@ -63,7 +63,7 @@ rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 | ![](https://avatars.githubusercontent.com/u/47796739?s=64) | [polybiusproxy](https://github.com/polybiusproxy)
 | ![](https://avatars.githubusercontent.com/u/52961795?s=64) | [xPythh](https://github.com/xPythh) |
 | ![](https://avatars.githubusercontent.com/u/22226349?s=64) | [mkst](https://github.com/mkst)
-| ![](https://i.imgur.com/vtsmp8m.png) 						 | [polybiusproxy](https://github.com/unclamped) 
+| ![](https://i.imgur.com/vtsmp8m.png) 						 | [unclamped](https://github.com/unclamped) 
 
 You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
 
