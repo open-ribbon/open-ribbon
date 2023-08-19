@@ -11,7 +11,7 @@ void SwExitCriticalSection();
 void FntFlush();
 void GsSetProjection(s32);
 s32 SetDispMask(s32);
-s32 Vsync(s32);
+s32 VSync(s32);
 s32 ResetGraph(s32);
 
 void SpuQuit();
@@ -51,4 +51,4 @@ extern void VideoSys__RemoveVSyncCB(void *callback);
 
 
 // No origin established yet
-extern void UnknownFunction00();
+extern void UnkFunc00();
