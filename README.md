@@ -63,3 +63,6 @@ rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 | ![](https://avatars.githubusercontent.com/u/52961795?s=64) | [xPythh](https://github.com/xPythh)
 
 You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
+
+#
+Are you going trick or treating ?
