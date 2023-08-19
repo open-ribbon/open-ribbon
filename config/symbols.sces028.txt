@@ -1,14 +1,38 @@
-// PsyQ functions
+// PsyQ functions (By Compiler)
+printf = 0x80030674;		  // Print formatted output
+exit = 0x80030914;			  // Terminate a program normally
+SwEnterCriticalSection = 0x80030924; 	// uppresses interrupts
+SwExitCriticalSection = 0x80030480;  	// Enables interrupts
+SpuQuit = 0x80033184;		  // Terminates SPU processing
+SpuIsTransferCompleted = 0x800330D4; 	// Checks whether transfer is completed or waits for completion
+InitClip = 0x80035E1C;		  // Initialize clipping parameter
+ResetGraph = 0x8002CDE8;	  // Initialize drawing engine
+FntFlush = 0x8002F724;		  // Draw contents of print stream
+Clip3F = 0x80035CAC;		  // Three-vertex clipping functions
+GsSetProjection = 0x80035DFC; // Set the projection plane position
+rcos = 0x80035F3C;			  // Finds the cosine function of the angle
+rsin = 0x80035FDC;			  // Finds the sine function of the angle
+HWD0 = 0x800481E8;			  // Horizontal resolution
+VWD0 = 0x800481EC;			  // Vertical resolution
 
-printf = 0x80030674;
-exit = 0x80030914;
-SwEnterCriticalSection = 0x80030924;
-SwExitCriticalSection = 0x80030480;
-SpuQuit = 0x80033184;
-SpuIsTransferCompleted = 0x800330D4;
 // Core Program
 main = 0x800233C0;
 start = 0x8002BF78;
+
+
+// Global Functions (By Developers)
+cbready = 0x80021BE8;
+cbsync = 0x80021C84;
+
+vsync = 0x8003F958;
+vsync_cb = 0x8003F958;
+vsync_cb_end = 0x8003F960;
+
+fntStream = 0x80047F08;
+
+evmx = 0x800401A0;
+
+evbfad = 0x8003FEE0;
 
 
 // VideoSys
@@ -28,36 +52,27 @@ VideoSys__alloc = 0x8001E488;
 VideoSys__SetProjection = 0x80022EE8;
 
 
-ResetGraph = 0x8002CDE8;
-FntFlush = 0x8002F724;
-Clip3F = 0x80035CAC;
-GsSetProjection = 0x80035DFC;
-InitClip = 0x80035E1C;
-rcos = 0x80035F3C;
-rsin = 0x80035FDC;
-
-vsync = 0x8003F958;
-evbfad = 0x8003FEE0;
-evmx = 0x800401A0;
-HWD0 = 0x800481E8;
-VWD0 = 0x800481EC;
-
-fntStream = 0x80047F08;
-FntFlush = 0x8002F724;
-
-vsync_cb = 0x8003F958;
-vsync_cb_end = 0x8003F960;
-
 // CdSys
 CdSys__Unk00MemAdd = 0x80047F4C;
 CdSys__Unk01MemAdd = 0x80047F48;
 
 
 // AudioSys
+AudioSys__InitSpu = 0x8001F980;
 AudioSys__QuitSpu = 0x8001F108;
+AudioSys__new = 0x8001F7F4;
+AudioSys__Dtor = 0x8001F92C;
+AudioSys__SetVolume = 0x8001F13C; 
 AudioSys__IsTransferCompleted = 0x8001F90C;
-AudioSys__UnknownVar = 0x8001917C;
 AudioSys__CallBack = 0x8001FED4;
+AudioSys__ParseHV = 0x8001F628;
+AudioSys__Unk00 = 0x8001FA7C;
+AudioSys__Unk01 = 0x8001F86C;
+AudioSys__Unk02 = 0x8001F8E8;
+AudioSys__Unk05 = 0x8001FB48;
+AudioSys__Unk04 = 0x8001FB8C;
+AudioSys__Unk06 = 0x8001FC18;
+AudioSys__UnknownVar = 0x8001917C;
 
 
 // FontHack
@@ -65,5 +80,43 @@ AudioSys__CallBack = 0x8001FED4;
 // FontHack__Unk00 = 0x8002AF90;
 // MemorySys__Free = 0x80021A50;
 
+
+// InputSys
+InputSys__Ctor = 0x80021608;
+InputSys__Init = 0x800203B8;
+InputSys__Quit = 0x80020558;
+InputSys__Unk00 = 0x800206D4;
+InputSys__Unk01 = 0x80020728;
+InputSys__Unk03 = 0x800205FC;
+InputSys__alloc = 0x800208C4;
+
+
+// FileSys
+FileSys__Read = 0x80021D9C;
+FileSys__LoadFile = 0x80022210;
+FileSys__DeleteFile = 0x80022514;
+FileSys__Unknown = 0x8002254C;
+FileSys__Unk00 = 0x80022594;
+
+// PacketFiles
+PackedFiles__Unk00 = 0x80022044;
+PackedFiles__Init = 0x80022094;
+PackedFiles__Quit = 0x80022138;
+PackedFiles__Load = 0x80022184;
+
+
+// MemorySys
+MemorySys__Init = 0x800216FC;
+MemorySys__Info = 0x80021760;
+MemorySys__DumpUsage = 0x8002184C;
+MemorySys__DumpHead = 0x800218C4;
+MemorySys__Init01 = 0x80021968;
+MemorySys__malloc = 0x80021988;
+MemorySys__free = 0x80021A50;
+MemorySys__CountHeapFree = 0x80021A84;
+
+
+
 // No origin established yet
-UnknownFunction00 = 0x8001FA08;
+UnkFunc00 = 0x8001FA08;
+UnkCtor02 = 0x80020098;

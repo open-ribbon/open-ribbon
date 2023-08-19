@@ -66,12 +66,12 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F0D4);
 
 void AudioSys__QuitSpu() {
     VideoSys__RemoveVSyncCB(&AudioSys__CallBack);
-    UnknownFunction00();
+    UnkFunc00();
     SpuQuit();
 }
 // INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__QuitSpu);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F13C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__SetVolume);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F1D8);
 
@@ -83,17 +83,17 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F5E4);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F608);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F628);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__ParseHV);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F6F0);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F74C);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F7F4);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__new);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F86C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Unk01);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F8E8);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Unk02);
 
 s32 AudioSys__IsTransferCompleted(s32 arg0)
 {
@@ -112,19 +112,19 @@ void func_8001F92C(s32 int* arg0, char* arg1) {
     func_8001F6F0(arg0, arg1); // <- sub is only in ida, i renamed it to func
 }
 */
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F92C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Dtor);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F980);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__InitSpu);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", UnknownFunction00);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", UnkFunc00);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FA7C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Unk00);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FB48);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Unk05);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FB8C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Unk04);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FC18);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Unk06);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001FE34);
 
@@ -136,7 +136,7 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020004);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020020);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020098);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", UnkCtor02);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800200AC);
 
@@ -150,15 +150,15 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800202C0);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8002038C);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800203B8);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Init);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020558);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Quit);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800205FC);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Unk03);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800206D4);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Unk00);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020728);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Unk01);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800207C4);
 
@@ -166,7 +166,7 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800207D0);
 
 void func_800208BC(void) {}
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800208C4);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__alloc);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020920);
 
@@ -182,55 +182,55 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800214E8);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8002157C);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021608);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Ctor);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800216FC);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__Init);
 
-void func_80021758(void) {}
+void func_80021758(void) {} // MemorySys__Stub [Empty]
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021760);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__Info);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8002184C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__DumpUsage);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800218C4);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__DumpHead);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021968);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__Init01);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021988);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__malloc);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021A50);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__free);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021A84);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", MemorySys__CountHeapFree);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021AC0);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021BE8);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", cbready);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021C84);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", cbsync);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021CD0);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021D9C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__Read);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021E6C);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80021EF4);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80022044);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", PackedFiles__Unk00);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80022094);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", PackedFiles__Init);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80022138);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", PackedFiles__Quit);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80022184);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", PackedFiles__Load);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80022210);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__LoadFile);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80022514);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__DeleteFile);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8002254C);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__Unknown);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80022594);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__Unk00);
 
 void func_80022658(void) {}
 
