@@ -11,6 +11,9 @@ This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ãƒ
 
 ## How to build
 
+Place all the necessary executable files in the `iso` directory (e.g. `MAIN_G.EXE`) first.
+`.bin`/`.cue` files will not work, and in that case you will have to extract it manually yourself via a program such as `binwalk`
+
  1. Run `make extract` to generate the assembly files in the `asm/` directory
  1. Run `make all` to compile the binaries in the `build/` directory
 
