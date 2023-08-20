@@ -1,0 +1,43 @@
+name: build
+
+on:
+  push:
+    branches: [ main, test ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push' }}
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout this repo
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Checkout binaries
+      uses: actions/checkout@v3
+      with:
+        repository: open-ribbon/binaries
+        ssh-key: ${{ secrets.BINARIES_DEPLOY_KEY }}
+        path: iso
+
+    - name: Decrypt MAIN_T
+      run: echo ${{ secrets.BINARIES_ENCRYPTION_KEY }} | openssl enc -d -aes-256-cbc -pass stdin -pbkdf2 -in iso/MAIN_T.EXE.aes -out iso/MAIN_T.EXE
+    - name: Decrypt MAIN_K
+      run: echo ${{ secrets.BINARIES_ENCRYPTION_KEY }} | openssl enc -d -aes-256-cbc -pass stdin -pbkdf2 -in iso/MAIN_K.EXE.aes -out iso/MAIN_K.EXE
+    - name: Decrypt MAIN_G
+      run: echo ${{ secrets.BINARIES_ENCRYPTION_KEY }} | openssl enc -d -aes-256-cbc -pass stdin -pbkdf2 -in iso/MAIN_G.EXE.aes -out iso/MAIN_G.EXE
+
+    - name: Install Ubuntu packages
+      run: sudo apt-get update && sudo apt-get install -y gcc-mips-linux-gnu
+
+    - name: Install Python modules
+      run: python3 -m pip install -r tools/splat/requirements.txt
+
+    - name: Extract
+      run: make extract
+
+    - name: Compile
+      run: make
