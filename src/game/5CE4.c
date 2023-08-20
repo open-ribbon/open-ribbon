@@ -226,7 +226,13 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", PackedFiles__Load);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__LoadFile);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__DeleteFile);
+void FileSys__DeleteFile(PakFile pf) 
+{
+    if (pf.size != 0 && pf.next != NULL)
+        delete(pf);
+}
+//INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__DeleteFile);
+
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", FileSys__Unknown);
 

@@ -18,7 +18,7 @@ HWD0 = 0x800481E8;			  // Horizontal resolution
 VWD0 = 0x800481EC;			  // Vertical resolution
 SetDispMask = 0x8002CFBC;     // Puts display mask into the status specified by mask
 VSync = 0x800309E4;			  // Wait for the next vertical blank, or return the vertical blank counter value.
-
+delete = 0x8002F3AC;	      // This method calls the "free" method that is custom
 
 // Core Program
 main = 0x800233C0;
@@ -119,7 +119,6 @@ MemorySys__Init01 = 0x80021968;
 MemorySys__malloc = 0x80021988;
 MemorySys__free = 0x80021A50;
 MemorySys__CountHeapFree = 0x80021A84;
-
 
 
 // No origin established yet

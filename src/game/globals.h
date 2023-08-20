@@ -50,5 +50,15 @@ extern int AudioSys__CallBack();
 extern void VideoSys__RemoveVSyncCB(void *callback);
 
 
+typedef struct PakFile PakFile;
+struct PakFile {
+    PakFile *next;
+    s32 unk4;
+    s32 size;    
+};
+s32 delete(PakFile);
+
+
 // No origin established yet
 extern void UnkFunc00();
+
