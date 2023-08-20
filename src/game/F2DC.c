@@ -6,18 +6,13 @@ INCLUDE_ASM("asm/game/nonmatchings/F2DC", Movie__Ctor);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028A88);
 
-/*void UnkFunc01(UnkStruct00* arg0, s32 arg1)
-{
-	arg0->unk18 = arg1;
-}*/	
-
 void UnkFunc01(UnkStruct00* a1, s32 a2) 
 {
     a1->unk18 = a2;
 }
 // INCLUDE_ASM("asm/game/nonmatchings/F2DC", UnkFunc01);
 
-INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028AC4);
+INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028AC4); // < - This retard is pointing to UnkFunc01 memory address too
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028B70);
 
@@ -31,13 +26,13 @@ INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028DE4);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028E74);
 
-INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028EEC);
+INCLUDE_ASM("asm/game/nonmatchings/F2DC", Movie__Unk02);
 
 void func_80028F44(void) {}
 
 void func_80028F4C(void) {}
 
-INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028F54);
+int UnkFunc02() { return 1; }; // Don't ask me why does this function exists :')'
 
 void func_80028F5C(void) {}
 

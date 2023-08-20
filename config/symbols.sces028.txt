@@ -128,9 +128,11 @@ MemorySys__CountHeapFree = 0x80021A84;
 
 // Movie
 Movie__Ctor = 0x80027ADC;
+Movie__Unk02 = 0x80028EEC; 
 
 
 // No origin established yet
 UnkFunc00 = 0x8001FA08;
 UnkFunc01 = 0x80028ABC;
+UnkFunc02 = 0x80028F54; // Returns int 1 everytime
 UnkCtor02 = 0x80020098;
