@@ -64,7 +64,14 @@ struct PakFile {
 s32 delete(PakFile);
 
 
+typedef struct {
+    char Dummy_Data[0x18]; // To force Unk18 to be at byte N°18
+    s32 unk18;  
+} UnkStruct00;
+
+
 // No origin established yet
 extern void UnkFunc00();
+extern void UnkFunc01();
 extern void AudioSys__UnkFunc00();
 

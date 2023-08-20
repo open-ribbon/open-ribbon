@@ -2,11 +2,20 @@
 
 #include "globals.h"
 
-INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80027ADC);
+INCLUDE_ASM("asm/game/nonmatchings/F2DC", Movie__Ctor);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028A88);
 
-INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028ABC);
+/*void UnkFunc01(UnkStruct00* arg0, s32 arg1)
+{
+	arg0->unk18 = arg1;
+}*/	
+
+void UnkFunc01(UnkStruct00* a1, s32 a2) 
+{
+    a1->unk18 = a2;
+}
+// INCLUDE_ASM("asm/game/nonmatchings/F2DC", UnkFunc01);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80028AC4);
 

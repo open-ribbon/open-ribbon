@@ -18,7 +18,6 @@ void VideoSys__OnVSync()
 		(*cb)();
 	}
 }
-//INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__OnVSync);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Init);
 
@@ -30,7 +29,6 @@ void VideoSys__Reset()
     VSync(0);
     SetDispMask(0);
 }
-// INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Reset);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__Flip);
 
@@ -40,7 +38,6 @@ void VideoSys__DisplayFnt()
 {
 	FntFlush(fntStream);
 }
-// INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__DisplayFnt);
 
 INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__GetOT);
 
