@@ -66,4 +66,5 @@ s32 delete(PakFile);
 
 // No origin established yet
 extern void UnkFunc00();
+extern void AudioSys__UnkFunc00();
 

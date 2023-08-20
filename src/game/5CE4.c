@@ -20,7 +20,7 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E744);
 }*/
 
 // *FontHack::Ctor
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E798);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", FontHack__Ctor);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E7E8);
 
@@ -88,9 +88,9 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F5E4);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F608);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__ParseHV);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__ParseVH);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F6F0);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__UnkFunc00); // Since its "circled" by AudioSys, its probably part of AudioSys
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F74C);
 
@@ -106,18 +106,7 @@ s32 AudioSys__IsTransferCompleted(s32 arg0)
 }
 // INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__IsTransferCompleted);
 
-/* FIXME:
-void func_8001F92C(s32 int* arg0, char* arg1) {
-    signed int sndBuf;
-
-    sndBuf = arg0[5];
-    arg0[6] = &unkVar;
-    if ( sndBuf >= 0 )
-        SpuFree(sndBuf);
-    func_8001F6F0(arg0, arg1); // <- sub is only in ida, i renamed it to func
-}
-*/
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Dtor);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Dtor); // Uses AudioSys__UnkFunc00
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__InitSpu);
 

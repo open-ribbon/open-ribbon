@@ -20,7 +20,7 @@ SetDispMask = 0x8002CFBC;     // Puts display mask into the status specified by 
 VSync = 0x800309E4;			  // Wait for the next vertical blank, or return the vertical blank counter value.
 delete = 0x8002F3AC;	      // This method calls the "free" method that is custom
 SsUtReverbOff = 0x800330B4;   // Turns off global Reverb.
-
+SpuFree = 80033034;          // 
 
 // Core Program
 main = 0x800233C0;
@@ -73,7 +73,7 @@ AudioSys__Dtor = 0x8001F92C;
 AudioSys__SetVolume = 0x8001F13C; 
 AudioSys__IsTransferCompleted = 0x8001F90C;
 AudioSys__CallBack = 0x8001FED4;
-AudioSys__ParseHV = 0x8001F628;
+AudioSys__ParseVH = 0x8001F628;
 AudioSys__Unk00 = 0x8001FA7C;
 AudioSys__Unk01 = 0x8001F86C;
 AudioSys__Unk02 = 0x8001F8E8;
@@ -81,9 +81,10 @@ AudioSys__Unk05 = 0x8001FB48;
 AudioSys__Unk04 = 0x8001FB8C;
 AudioSys__Unk06 = 0x8001FC18;
 AudioSys__UnknownVar = 0x8001917C;
-
+AudioSys__UnkFunc00 = 0x8001F6F0;
 
 // FontHack
+FontHack__Ctor = 0x8001E798;
 // FontHack_Instance = 0x80047ED4;
 // FontHack__Unk00 = 0x8002AF90;
 // MemorySys__Free = 0x80021A50;
