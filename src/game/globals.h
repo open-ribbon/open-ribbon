@@ -17,6 +17,8 @@ s32 ResetGraph(s32);
 void SpuQuit();
 s32 SpuIsTransferCompleted(s32);
 
+void SsUtReverbOff();
+
 extern s32 buffer_i;
 extern s32 fntStream;
 
@@ -46,7 +48,10 @@ typedef struct {} FAInstance;
 extern struct FAInstance* FontHack_Instance;
 
 
+extern void AudioSys__InitSpu();
 extern int AudioSys__CallBack();
+
+extern void VideoSys__AddVSyncCB(void *callback);
 extern void VideoSys__RemoveVSyncCB(void *callback);
 
 

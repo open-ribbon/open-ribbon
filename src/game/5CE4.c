@@ -62,7 +62,12 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F048);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F0A4);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001F0D4);
+void AudioSys__Init() {
+    SsUtReverbOff();
+    AudioSys__InitSpu();
+    VideoSys__AddVSyncCB(&AudioSys__CallBack);
+}
+// INCLUDE_ASM("asm/game/nonmatchings/5CE4", AudioSys__Init);
 
 void AudioSys__QuitSpu() {
     VideoSys__RemoveVSyncCB(&AudioSys__CallBack);
