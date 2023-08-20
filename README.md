@@ -1,7 +1,5 @@
 # open-ribbon
-This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン)  [PAL]
-Its main objective is to obtain the source code back of the game.
-Interested in helping ? Feel free to join our Discord Server ! Everyone is Welcome.
+This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン) [PAL].
 
 ## Progress
 
