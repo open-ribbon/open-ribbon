@@ -27,7 +27,7 @@ jobs:
       - name: Generate report
         run: |
             mkdir -p gh-report/assets
-            python tools/report_progress.py MAIN_T.EXE 610 src/game > gh-report/assets/progress-sces028.json
+            python tools/report_progress.py MAIN_T.EXE 270 src/game > gh-report/assets/progress-sces028.json
       - name: Commit report
         run: |
             git config --global user.name 'polybiusproxy' 
