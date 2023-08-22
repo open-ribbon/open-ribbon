@@ -11,12 +11,12 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E658);
 
 
 // FontHack::Dtor
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E744);
-/*void func_8001E744() 
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", FontHack__Dtor); // ALL BROKEN
+/*void FontHack__Dtor()
 {
-    FontHack__Unk00(FontHack_Instance, 2);
-    if (&vsync_cb_end - &vsync_cb)
-        MemorySys__Free(&vsync_cb); // MemorySys__Free
+    FontHack__UnkFunc00(FontHack_Instance, 2);
+    if (((s32) (vsync.unk8 - (s32)vsync.cb) >> 2) != 0)
+        MemorySys__free(vsync.cb);
 }*/
 
 // *FontHack::Ctor

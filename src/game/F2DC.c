@@ -96,7 +96,7 @@ INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_8002AE5C);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_8002AEC0);
 
-INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_8002AF90);
+INCLUDE_ASM("asm/game/nonmatchings/F2DC", FontHack__UnkFunc00);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_8002B01C);
 

@@ -31,7 +31,7 @@ extern EVECTOR evbfad;
 extern s32 CdSys__Unk00MemAdd;
 extern s32 CdSys__Unk01MemAdd;
 
-struct VSyncCb{};
+struct VSyncCb {};
 extern struct VSyncCb vsync_cb;
 extern struct VSyncCb vsync_cb_end;
 
@@ -40,6 +40,7 @@ struct VSyncCbList
 {
 	VSyncCb *cb;
 	VSyncCb tail;
+	s32 unk8;
 };
 extern struct VSyncCbList vsync;
 
@@ -54,6 +55,9 @@ extern int AudioSys__CallBack();
 extern void VideoSys__AddVSyncCB(void *callback);
 extern void VideoSys__RemoveVSyncCB(void *callback);
 
+extern void MemorySys__free(void *addr);
+
+extern void FontHack__UnkFunc00(struct FAInstance*, s32 probablyNotValid); // TO BE FIXED
 
 typedef struct PakFile PakFile;
 struct PakFile {
