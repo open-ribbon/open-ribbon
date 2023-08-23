@@ -20,7 +20,10 @@ SetDispMask = 0x8002CFBC;     // Puts display mask into the status specified by 
 VSync = 0x800309E4;			  // Wait for the next vertical blank, or return the vertical blank counter value.
 delete = 0x8002F3AC;	      // This method calls the "free" method that is custom
 SsUtReverbOff = 0x800330B4;   // Turns off global Reverb.
-SpuFree = 80033034;          // 
+SpuFree = 0x80033034;         // 
+free = 0x80030620;		  	  // 
+PadStartCom = 0x80033FB0;     // Initiates a controller read operation triggered by a vertical retrace interval interrupt.
+
 
 // Core Program
 main = 0x800233C0;
@@ -30,6 +33,7 @@ start = 0x8002BF78;
 // Global Functions (By Developers)
 cbready = 0x80021BE8;
 cbsync = 0x80021C84;
+
 
 vsync = 0x8003F958;
 vsync_cb = 0x8003F958;
@@ -41,6 +45,11 @@ evmx = 0x800401A0;
 
 evbfad = 0x8003FEE0;
 
+// No origin established yet
+UnkVar00 = 0x80047F30; 
+UnkVar01 = 0x80047F2C;
+UnkVar02 = 0x80047F34;
+UnkVar03 = 0x80047FA0;
 
 // VideoSys
 VideoSys__FlipBuffer = 0x8001D558;
@@ -136,4 +145,7 @@ Movie__Unk02 = 0x80028EEC;
 UnkFunc00 = 0x8001FA08;
 UnkFunc01 = 0x80028ABC;
 UnkFunc02 = 0x80028F54; // Returns int 1 everytime
+UnkFunc03 = 0x8001EBB4; // Probably used by AudioSys
+UnkFunc04 = 0x80020168;
+UnkFunc05 = 0x800256C4;
 UnkCtor02 = 0x80020098;
