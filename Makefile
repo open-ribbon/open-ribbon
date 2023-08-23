@@ -74,8 +74,8 @@ OPT_FLAGS       := -Os
 
 AS_SDATA_LIMIT  := -G0
 
-$(BUILD_DIR)/src/game/5CE4.c.o: AS_SDATA_LIMIT := -G2
-$(BUILD_DIR)/src/game/4D58.c.o: AS_SDATA_LIMIT := -G4
+$(BUILD_DIR)/src/game/VideoSys.c.o: AS_SDATA_LIMIT := -G4
+$(BUILD_DIR)/src/game/AudioSys.c.o: AS_SDATA_LIMIT := -G2
 
 # macros
 define list_src_files
