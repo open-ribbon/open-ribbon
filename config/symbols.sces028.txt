@@ -51,6 +51,7 @@ UnkVar01 = 0x80047F2C;
 UnkVar02 = 0x80047F34;
 UnkVar03 = 0x80047FA0;
 
+
 // VideoSys
 VideoSys__FlipBuffer = 0x8001D558;
 VideoSys__OnDrawSync = 0x8001D584;
@@ -67,6 +68,7 @@ VideoSys__RemoveVSyncCB = 0x8001E410;
 VideoSys__alloc = 0x8001E488;
 VideoSys__SetProjection = 0x80022EE8;
 VideoSys__LoadLogos = 0x8002A030;
+
 
 // CdSys
 CdSys__Unk00MemAdd = 0x80047F4C;
