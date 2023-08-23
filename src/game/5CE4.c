@@ -30,7 +30,13 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001E9FC);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001EA5C);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001EBB4);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", UnkFunc03);
+/*void UnkFunc03()
+{
+    UnkVar00 = -1;
+    UnkVar01 = UnkVar00; 
+    UnkVar02 = 0;
+}*/
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8001EBD4);
 
@@ -136,7 +142,7 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800200AC);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800200E4);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80020168);
+INCLUDE_ASM("asm/game/nonmatchings/5CE4", UnkFunc04); // Used by InputSys__Quit
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800201C4);
 
@@ -146,6 +152,7 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_8002038C);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Init);
 
+// https://decomp.me/scratch/nhYrY
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Quit);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", InputSys__Unk03);
@@ -352,7 +359,11 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80025590);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80025604);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800256C4);
+//INCLUDE_ASM("asm/game/nonmatchings/5CE4", UnkFunc05);
+void UnkFunc05(UnkStruct00 *arg0, s32 arg1)
+{
+    arg0->unk18 = arg1;
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_800256CC);
 

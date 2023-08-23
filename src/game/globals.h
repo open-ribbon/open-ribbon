@@ -17,6 +17,10 @@ s32 ResetGraph(s32);
 void SpuQuit();
 s32 SpuIsTransferCompleted(s32);
 
+void free(void *ptr);
+
+void PadStartCom();
+
 void SsUtReverbOff();
 
 extern s32 buffer_i;
@@ -73,9 +77,20 @@ typedef struct {
     s32 unk18;  
 } UnkStruct00;
 
+typedef struct {
+    void *unk0;
+} UnkStruct01;
 
 // No origin established yet
+volatile s32 UnkVar00;
+volatile s32 UnkVar01;
+volatile s32 UnkVar02;
+extern UnkStruct01* UnkVar03;
+// ^ NO RELATIONS V
 extern void UnkFunc00();
 extern void UnkFunc01();
-extern void AudioSys__UnkFunc00();
+extern int  UnkFunc02();
+extern void UnkFunc04();
+extern void UnkFunc05();
 
+extern void AudioSys__UnkFunc00();
