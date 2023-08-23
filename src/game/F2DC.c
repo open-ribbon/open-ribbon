@@ -70,7 +70,7 @@ INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80029DB8);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_80029FA8);
 
-INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_8002A030);
+INCLUDE_ASM("asm/game/nonmatchings/F2DC", VideoSys__LoadLogos);
 
 INCLUDE_ASM("asm/game/nonmatchings/F2DC", func_8002A7E4);
 
