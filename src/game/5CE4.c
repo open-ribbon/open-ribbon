@@ -373,7 +373,8 @@ INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80025954);
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80025B18);
 
-INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80025B34);
+// INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80025B34);
+void TmdLineObj__Unk12(s32* arg0) { *arg0 = 0; }
 
 INCLUDE_ASM("asm/game/nonmatchings/5CE4", func_80025B3C);
 

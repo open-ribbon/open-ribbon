@@ -136,6 +136,10 @@ MemorySys__free = 0x80021A50;
 MemorySys__CountHeapFree = 0x80021A84;
 
 
+// TmdLineObj
+TmdLineObj__Unk12 = 0x80025B34;
+
+
 // Movie
 Movie__Ctor = 0x80027ADC;
 Movie__Unk02 = 0x80028EEC; 
