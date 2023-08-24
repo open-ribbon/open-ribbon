@@ -10,7 +10,6 @@ This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ãƒ
 | `SCES-02873` | `MAIN_K.EXE`  | N/A 
 | `SCES-02873` | `MAIN_G.EXE`  | N/A 
 
-#
 ## General info
 
 Vib-Ribbon was written in C++, which was uncommon for games in the 90s, especially on the PSX.<br>
