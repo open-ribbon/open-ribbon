@@ -1,6 +1,7 @@
 # open-ribbon
 This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン) [PAL].
 
+#
 ## Progress
 
 | Version      | File name  | Progress
@@ -9,23 +10,29 @@ This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (�
 | `SCES-02873` | `MAIN_K.EXE`  | N/A 
 | `SCES-02873` | `MAIN_G.EXE`  | N/A 
 
+#
+## General info
+
+Vib-Ribbon was written in C++, which was uncommon for games in the 90s, especially on the PSX.<br>
+However, due to current limitations, this decompilation is written in C.
+
 ## How to build
 
 Place all the necessary PSX executable files in the `iso` directory (e.g. `MAIN_G.EXE`) first.
-`.bin`/`.cue` files will not work, and in that case you will have to extract it manually from the binary yourself via a program such as `binwalk`.
+`.bin`/`.cue` files will not work; in that case, you will have to extract it manually from the binary yourself via a program such as `binwalk`.
 
  1. Run `make extract` to generate the assembly files in the `asm/` directory
  1. Run `make all` to compile the binaries in the `build/` directory
 
 In case there are any changes in the `config/` folder, you might need to run `make clean` to reset the extraction.
 
-Some non-matching functions are present in the source preprocessed by the macro `NON_MATCHING`. You can still compile the game binaries by running `CPP_FLAGS=-DNON_MATCHING make`. In theory they might be logically equivalent in-game, but I cannot promise that. Few of them could match by tuning or changing the compiler.
+Some non-matching functions are present in the source preprocessed by the macro `NON_MATCHING`. You can still compile the game binaries by running `CPP_FLAGS=-DNON_MATCHING make`. In theory, they might be logically equivalent in-game, but I cannot promise that. Few of them could match by tuning or changing the compiler.
 
 #
 ## How to decompile
 
 1. Run `make clean extract all expected` at least once
-1. Look for one of those function which hasn't successfully decompiled yet (eg. `INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__FlipBuffer);`)
+1. Look for a function which hasn't been successfully decompiled yet (eg. `INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__FlipBuffer);`)
 1. Run `FUNC=VideoSys__FlipBuffer make decompile` to dump the decompiled code on the console
 1. Replace the `INCLUDE_ASM(...);` you targeted with the console output content
 1. and invoke `python3 ./tools/asm-differ/diff.py -mwo VideoSys__FlipBuffer`
@@ -66,4 +73,4 @@ rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
 
 #
-Are you going trick or treating ?
+Are you going trick or treating?
