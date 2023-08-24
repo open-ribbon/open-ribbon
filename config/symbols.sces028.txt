@@ -50,7 +50,7 @@ UnkVar00 = 0x80047F30;
 UnkVar01 = 0x80047F2C;
 UnkVar02 = 0x80047F34;
 UnkVar03 = 0x80047FA0;
-
+UnkVar04 = 0x80047F78;
 
 // VideoSys
 VideoSys__FlipBuffer = 0x8001D558;
@@ -90,9 +90,10 @@ AudioSys__Unk01 = 0x8001F86C;
 AudioSys__Unk02 = 0x8001F8E8;
 AudioSys__Unk05 = 0x8001FB48;
 AudioSys__Unk04 = 0x8001FB8C;
-AudioSys__Unk06 = 0x8001FC18;
 AudioSys__UnknownVar = 0x8001917C;
 AudioSys__UnkFunc00 = 0x8001F6F0;
+AudioSys__UnkFunc01 = 0x8001F57C;
+AudioSys__UnkFunc06 = 0x8001FC18;
 
 
 // FontHack

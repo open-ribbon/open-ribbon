@@ -23,7 +23,12 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F1D8);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F42C);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F57C);
+// This function seems to be configuring the audio settings (By the AudioSys__Unk06)
+void AudioSys__UnkFunc01(UnkStruct02* arg0, s16 arg1, s16 arg2, s16 arg3) 
+{
+    AudioSys__UnkFunc06(arg1, UnkVar04, arg0->unk0, arg0->unk4, (s16) (arg0->unk4 + 1), 0, arg2, arg2, arg3);
+}
+// INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc01);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F5E4);
 
@@ -58,7 +63,7 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk05);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk04);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk06);
+INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc06);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001FE34);
 

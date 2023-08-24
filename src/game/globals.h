@@ -55,13 +55,14 @@ extern struct FAInstance FontHack_Instance;
 
 extern void AudioSys__InitSpu();
 extern int AudioSys__CallBack();
-
+extern void AudioSys__UnkFunc00();
+extern int AudioSys__UnkFunc06(s16, s16, s16, s16, s32, s32, s32, s32, s32);
 extern void VideoSys__AddVSyncCB(void *callback);
 extern void VideoSys__RemoveVSyncCB(void *callback);
 
 extern void MemorySys__free(void *addr);
 
-extern void FontHack__UnkFunc00(struct FAInstance*, s32 probablyNotValid); // TO BE FIXED
+extern void FontHack__UnkFunc00(struct FAInstance*, s32); // TO BE FIXED
 
 typedef struct PakFile PakFile;
 struct PakFile {
@@ -81,11 +82,19 @@ typedef struct {
     void *unk0;
 } UnkStruct01;
 
+typedef struct 
+{
+    s16 unk0;
+    s16 unk1; // Lowers a bit without it, this variable exists
+    s16 unk4;
+} UnkStruct02;
+
 // No origin established yet
 volatile s32 UnkVar00;
 volatile s32 UnkVar01;
 volatile s32 UnkVar02;
 extern UnkStruct01* UnkVar03;
+extern s16 UnkVar04;
 // ^ NO RELATIONS V
 extern void UnkFunc00();
 extern void UnkFunc01();
@@ -93,4 +102,3 @@ extern int  UnkFunc02();
 extern void UnkFunc04();
 extern void UnkFunc05();
 
-extern void AudioSys__UnkFunc00();
