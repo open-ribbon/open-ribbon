@@ -94,7 +94,8 @@ AudioSys__UnknownVar = 0x8001917C;
 AudioSys__UnkFunc00 = 0x8001F6F0;
 AudioSys__UnkFunc01 = 0x8001F57C;
 AudioSys__UnkFunc06 = 0x8001FC18;
-
+AudioSys__UnkFunc07 = 0x8001F608;
+AudioSys__UnkFunc08 = 0x80020004;
 
 // FontHack
 FontHack__Dtor = 0x8001E744;

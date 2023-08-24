@@ -32,7 +32,11 @@ void AudioSys__UnkFunc01(UnkStruct02* arg0, s16 arg1, s16 arg2, s16 arg3)
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F5E4);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F608);
+int AudioSys__UnkFunc07()
+{
+    return AudioSys__UnkFunc08();
+}
+// INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc07);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__ParseVH);
 
@@ -71,7 +75,7 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001FE8C);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__CallBack);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_80020004);
+INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc08);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_80020020);
 

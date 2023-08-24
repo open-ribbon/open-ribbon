@@ -57,6 +57,9 @@ extern void AudioSys__InitSpu();
 extern int AudioSys__CallBack();
 extern void AudioSys__UnkFunc00();
 extern int AudioSys__UnkFunc06(s16, s16, s16, s16, s32, s32, s32, s32, s32);
+extern int AudioSys__UnkFunc08();
+
+
 extern void VideoSys__AddVSyncCB(void *callback);
 extern void VideoSys__RemoveVSyncCB(void *callback);
 
