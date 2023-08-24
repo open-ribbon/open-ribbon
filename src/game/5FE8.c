@@ -14,15 +14,12 @@ INCLUDE_ASM("asm/game/nonmatchings/5FE8", func_8001E9FC);
 
 INCLUDE_ASM("asm/game/nonmatchings/5FE8", func_8001EA5C);
 
-INCLUDE_ASM("asm/game/nonmatchings/5FE8", UnkFunc03);
-// needs maspsx fix
-/*
 void UnkFunc03()
 {
     UnkVar00 = -1;
     UnkVar01 = UnkVar00;
     UnkVar02 = 0;
-}*/
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/5FE8", func_8001EBD4);
 
