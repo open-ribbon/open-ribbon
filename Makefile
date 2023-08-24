@@ -76,6 +76,7 @@ AS_SDATA_LIMIT  := -G0
 
 $(BUILD_DIR)/src/game/VideoSys.c.o: AS_SDATA_LIMIT := -G4
 $(BUILD_DIR)/src/game/AudioSys.c.o: AS_SDATA_LIMIT := -G2
+$(BUILD_DIR)/src/game/5FE8.c.o: AS_SDATA_LIMIT := -G4
 
 # macros
 define list_src_files

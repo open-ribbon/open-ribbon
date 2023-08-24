@@ -50,7 +50,7 @@ extern struct VSyncCbList vsync;
 
 
 typedef struct {} FAInstance;
-extern struct FAInstance* FontHack_Instance;
+extern struct FAInstance FontHack_Instance;
 
 
 extern void AudioSys__InitSpu();
@@ -67,14 +67,14 @@ typedef struct PakFile PakFile;
 struct PakFile {
     PakFile *next;
     s32 unk4;
-    s32 size;    
+    s32 size;
 };
 s32 delete(PakFile);
 
 
 typedef struct {
     char Dummy_Data[0x18]; // To force Unk18 to be at byte N°18
-    s32 unk18;  
+    s32 unk18;
 } UnkStruct00;
 
 typedef struct {

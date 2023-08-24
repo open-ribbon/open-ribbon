@@ -21,6 +21,8 @@ options:
   migrate_rodata_to_functions: no
   disasm_unknown:              yes
 
+  rodata_string_guesser_level: 2 # improve string detection
+
   gp_value: 0x80047EB8
 
   section_order:
@@ -59,7 +61,8 @@ segments:
       - [0x4C60, rodata]
       # .text
       - [0x4D58, c, VideoSys]
-      - [0x5E58, c] # FontHack + CdSys
+      - [0x5E58, c, FontHack] # FontHack
+      - [0x5FE8, c] # CdSys
       - [0x68D4, c, AudioSys]
       - [0x7BB8, c, InputSys]
       - [0x8EFC, c, MemorySys]
