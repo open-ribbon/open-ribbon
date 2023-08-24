@@ -68,6 +68,8 @@ rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 | ![](https://avatars.githubusercontent.com/u/52961795?s=64) | [xPythh](https://github.com/xPythh) |
 | ![](https://avatars.githubusercontent.com/u/22226349?s=64) | [mkst](https://github.com/mkst)
 | ![](https://i.imgur.com/vtsmp8m.png) 						 | [unclamped](https://github.com/unclamped) 
+| ![](https://avatars.githubusercontent.com/u/70072571?s=64) | [sys128](https://github.com/sys128)
+| ![](https://avatars.githubusercontent.com/u/119765865?s=64) | [AnOpenSauceDev](https://github.com/AnOpenSauceDev)
 
 You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
 
