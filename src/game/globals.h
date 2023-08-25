@@ -35,6 +35,9 @@ extern EVECTOR evbfad;
 extern s32 CdSys__Unk00MemAdd;
 extern s32 CdSys__Unk01MemAdd;
 
+extern s32 voice_bit;
+
+
 struct VSyncCb {};
 extern struct VSyncCb vsync_cb;
 extern struct VSyncCb vsync_cb_end;
@@ -98,6 +101,9 @@ volatile s32 UnkVar01;
 volatile s32 UnkVar02;
 extern UnkStruct01* UnkVar03;
 extern s16 UnkVar04;
+extern s32 UnkVar05[24];
+extern s32 UnkVar06;
+extern s32 UnkVar07;
 // ^ NO RELATIONS V
 extern void UnkFunc00();
 extern void UnkFunc01();

@@ -34,6 +34,7 @@ start = 0x8002BF78;
 cbready = 0x80021BE8;
 cbsync = 0x80021C84;
 
+voice_bit = 0x80047F80;
 
 vsync = 0x8003F958;
 vsync_cb = 0x8003F958;
@@ -51,6 +52,10 @@ UnkVar01 = 0x80047F2C;
 UnkVar02 = 0x80047F34;
 UnkVar03 = 0x80047FA0;
 UnkVar04 = 0x80047F78;
+UnkVar05 = 0x8003FCAC;
+UnkVar06 = 0x80047F7C;
+UnkVar07 = 0x80047F88;
+
 
 // VideoSys
 VideoSys__FlipBuffer = 0x8001D558;
@@ -94,8 +99,9 @@ AudioSys__UnknownVar = 0x8001917C;
 AudioSys__UnkFunc00 = 0x8001F6F0;
 AudioSys__UnkFunc01 = 0x8001F57C;
 AudioSys__UnkFunc06 = 0x8001FC18;
-AudioSys__UnkFunc07 = 0x8001F608;
+AudioSys__UnkFunc07 = 0x8001FE8C;
 AudioSys__UnkFunc08 = 0x80020004;
+AudioSys__UnkFunc09 = 0x8001F608;
 
 // FontHack
 FontHack__Dtor = 0x8001E744;
