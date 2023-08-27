@@ -1,9 +1,10 @@
 # open-ribbon
-This repository is dedicated to the decompilation of the PS1 game Vib-Ribbon (ビブリボン) [PAL].
-The final objective is to obtain the final source code when decompiling the game.
+This repository is dedicated to the decompilation of **[PAL]** edition of the PS1 game Vib-Ribbon (ビブリボン). <br>
+The objective is to produce an free and open-source reverse-engineered version of the game. <br>
+Documentation about this game and project can be [found here.](https://github.com/open-ribbon/documentation)
 
-#
-## Progress
+
+## Decompilation Progress
 
 | Version      | File name  | Progress
 |--------------|------------|----------
