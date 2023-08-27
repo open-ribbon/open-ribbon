@@ -1,6 +1,6 @@
 # open-ribbon
 This repository is dedicated to the decompilation of **[PAL]** edition of the PS1 game Vib-Ribbon (ビブリボン). <br>
-The objective is to produce an free and open-source reverse-engineered version of the game. <br>
+The objective is to produce a free and open-source reverse-engineered version of the game. <br>
 Documentation about this game and project can be [found here.](https://github.com/open-ribbon/documentation)
 
 
@@ -74,6 +74,3 @@ rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 | ![](https://avatars.githubusercontent.com/u/119765865?s=64) | [AnOpenSauceDev](https://github.com/AnOpenSauceDev)
 
 You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
-
-#
-Are you going trick or treating?
