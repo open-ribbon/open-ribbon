@@ -4,56 +4,58 @@ import argparse
 import glob
 import json
 import os
+import re
 
 parser = argparse.ArgumentParser(description="Report progress for a specific decompiled file")
-parser.add_argument('name', metavar='name', type=str,
-                    help='Name of the original file')
-parser.add_argument('count', metavar='count', type=int,
-                    help='Total function count to calculate the percentage progress')
-parser.add_argument('source', metavar='src', type=str,
-                    help='file name or directory that contains the source code')
+parser.add_argument('path', metavar='path', type=str,
+                    help='Path of the files to evaluate')
+parser.add_argument('label', metavar='label', type=str,
+                    help='The name of the reporting progress')
 args = parser.parse_args()
 
-def fileLineCount(filePath, funcGetLineScore):
-    n = 0
-    with open(filePath, "rt") as f:
-        for line in f:
-            n += funcGetLineScore(line)
-    return n
-
-
-def getSourceFilepaths(path):
-    if os.path.isfile(path):
-        return [path]
-    else:
-        return glob.glob(path + '/**/*.c', recursive = True)
+def getFiles(path):
+    return glob.glob(os.getcwd() + path + "/*.c", recursive = True)
 
 def getPercentage(totalFuncCount, remainingFuncCount):
-    ratio = 1 - (remainingFuncCount / totalFuncCount)
-    return repr(round(ratio * 100, 1)) + "%"
+    return round((totalFuncCount / remainingFuncCount) * 100, 2) or 0
 
 def getColor(totalFuncCount, remainingFuncCount):
-    if remainingFuncCount == 0:
+    percentage = getPercentage(totalFuncCount, remainingFuncCount)
+    if percentage >= 75:
         return "brightgreen"
+    elif percentage >= 50:
+        return "brightyellow"
+    if percentage >= 25:
+        return "brightorange"
     else:
-        return "yellow"
+        return "brightred"
 
-def isIncludeAsm(line): return "INCLUDE_ASM" in line
-def isPartiallyDecompiled(line): return "#ifndef NON_MATCHING" in line
-def getLineScore(line):
-    if isIncludeAsm(line) == True: return 1.0
-    if isPartiallyDecompiled(line) == True: return -0.25
-    return 0.0
+def getRequiredAsm(fileName):
+    with open(filePath, "rt") as f:
+        content = f.read()
+        pattern = r'^ ?INCLUDE_ASM'
+        matches = re.findall(pattern, content, re.MULTILINE)
+        return len(matches) | 1
 
-remainingNonmatchingFuncCount = 0
-for filePath in getSourceFilepaths(args.source):
-    remainingNonmatchingFuncCount += fileLineCount(filePath, getLineScore)
+def getFoundFunctions(fileName):
+    with open(filePath, "rt") as f:
+        content = f.read()
+        pattern = r'^ ?[a-zA-Z0-9_]{1,6} [a-zA-Z0-9_]{1,200}\(.{0,100}\) ?(\/\/.{0,400})?({|\n{)'
+        matches = re.findall(pattern, content, re.MULTILINE)
+        return len(matches) | 1
+
+requireAsmFound = 0
+functionsFound = 0
+
+for filePath in getFiles(args.path):
+    requireAsmFound += getRequiredAsm(filePath)
+    functionsFound += getFoundFunctions(filePath)
 
 report = {
     "schemaVersion": 1,
-    "label": args.name,
-    "message": getPercentage(args.count, remainingNonmatchingFuncCount),
-    "color": getColor(args.count, remainingNonmatchingFuncCount),
+    "label": args.label,
+    "message": getPercentage(functionsFound, requireAsmFound),
+    "color": getColor(functionsFound, requireAsmFound),
 }
 
 print(json.dumps(report))
