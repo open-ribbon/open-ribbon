@@ -54,7 +54,7 @@ for filePath in getFiles(args.path):
 report = {
     "schemaVersion": 1,
     "label": args.label,
-    "message": getPercentage(functionsFound, requireAsmFound),
+    "message": repr(getPercentage(functionsFound, requireAsmFound)) + "%",
     "color": getColor(functionsFound, requireAsmFound),
 }
 
