@@ -44,13 +44,13 @@ segments:
        # rodata
       - [0x800, .rodata, VideoSys]
       - [0x87C, .rodata, 5FE8]
-      - [0x914, rodata] # AudioSys
-      - [0x9E8, rodata] # InputSys
-      - [0xA6C, rodata] # MemorySys
+      - [0x914, .rodata, AudioSys]
+      - [0x9E8, .rodata, InputSys]
+      - [0xA44, rodata] # MemorySys
       - [0xC00, rodata] # FileSys
       - [0xEA4, rodata] # InputControl
       - [0xF74, rodata] # Movie.h
-      - [0x1070, rodata]
+      - [0x1070, rodata] # E9A0
       - [0x1810, rodata]
       - [0x3F5C, rodata]
       - [0x4264, rodata]

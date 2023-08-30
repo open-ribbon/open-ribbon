@@ -19,12 +19,16 @@ void AudioSys__QuitSpu() {
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__SetVolume);
 
+INCLUDE_RODATA("asm/game/nonmatchings/AudioSys", D_80019114);
+
+INCLUDE_RODATA("asm/game/nonmatchings/AudioSys", D_8001913C);
+
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F1D8);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F42C);
 
 // This function seems to be configuring the audio settings (By the AudioSys__Unk06)
-void AudioSys__UnkFunc01(UnkStruct02* arg0, s16 arg1, s16 arg2, s16 arg3) 
+void AudioSys__UnkFunc01(UnkStruct02* arg0, s16 arg1, s16 arg2, s16 arg3)
 {
     AudioSys__UnkFunc06(arg1, UnkVar04, arg0->unk0, arg0->unk4, (s16) (arg0->unk4 + 1), 0, arg2, arg2, arg3);
 }
@@ -75,16 +79,16 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001FE34);
 void AudioSys__UnkFunc07() // Clears the UnkVar05 values
 {
     s32 i;
-    
+
     voice_bit = 0xFFFFFF; // 16777215 in decimal
     i = 0;
-    UnkVar06 = 0; 
+    UnkVar06 = 0;
     UnkVar07 = 0;
 
     while (i < 24)
     {
         UnkVar05[i] = -1;
-        i++;          
+        i++;
     }
 }
 
@@ -107,3 +111,7 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_800201C4);
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_800202C0);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8002038C);
+
+INCLUDE_RODATA("asm/game/nonmatchings/AudioSys", AudioSys__UnknownVar);
+
+INCLUDE_RODATA("asm/game/nonmatchings/AudioSys", D_8001918C);

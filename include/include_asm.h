@@ -26,6 +26,7 @@ __asm__( \
 
 #else
 #define INCLUDE_ASM(FOLDER, NAME)
+#define INCLUDE_RODATA(FOLDER, NAME)
 #endif
 
 #endif
