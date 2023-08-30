@@ -1,9 +1,6 @@
 #ifndef INCLUDE_ASM_H
 #define INCLUDE_ASM_H
 
-#define STRINGIFY_(x) #x
-#define STRINGIFY(x) STRINGIFY_(x)
-
 #ifndef PERMUTER
 
 #ifndef INCLUDE_ASM
@@ -17,10 +14,15 @@
           "\t.set reorder\n"                                                   \
           "\t.set at\n"                                                        \
           "\t.end\t" #NAME);
-#endif
 
-// omit .global
-__asm__(".include \"macro.inc\"\n");
+#define INCLUDE_RODATA(FOLDER, NAME) \
+__asm__( \
+    ".section .rodata\n" \
+    "\t.include \""FOLDER"/"#NAME".s\"\n" \
+    ".section .text" \
+)
+
+#endif
 
 #else
 #define INCLUDE_ASM(FOLDER, NAME)

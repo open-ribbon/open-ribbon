@@ -66,7 +66,7 @@ M2C_ARGS        := -P 4
 MASPSX_DIR      := $(TOOLS_DIR)/maspsx
 MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
 MASPSX          := $(PYTHON) $(MASPSX_APP)
-MASPSX_ARGS     := --expand-div --no-macro-inc
+MASPSX_ARGS     := --expand-div
 
 # flags
 SDATA_LIMIT     := -G4
