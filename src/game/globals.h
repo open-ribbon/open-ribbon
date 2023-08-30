@@ -88,12 +88,17 @@ typedef struct {
     void *unk0;
 } UnkStruct01;
 
-typedef struct 
+typedef struct
 {
     s16 unk0;
     s16 unk1; // Lowers a bit without it, this variable exists
     s16 unk4;
 } UnkStruct02;
+
+typedef struct {
+  s16 unk0;
+  u8  unk2;
+} UnkStruct05;
 
 // No origin established yet
 volatile s32 UnkVar00;
@@ -110,4 +115,3 @@ extern void UnkFunc01();
 extern int  UnkFunc02();
 extern void UnkFunc04();
 extern void UnkFunc05();
-

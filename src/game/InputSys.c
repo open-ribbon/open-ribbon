@@ -22,6 +22,10 @@ INCLUDE_ASM("asm/game/nonmatchings/InputSys", func_800207D0);
 
 void func_800208BC(void) {}
 
+INCLUDE_RODATA("asm/game/nonmatchings/InputSys", D_800191E8);
+
+INCLUDE_RODATA("asm/game/nonmatchings/InputSys", D_80019210);
+
 INCLUDE_ASM("asm/game/nonmatchings/InputSys", InputSys__alloc);
 
 INCLUDE_ASM("asm/game/nonmatchings/InputSys", func_80020920);

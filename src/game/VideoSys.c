@@ -21,6 +21,10 @@ void VideoSys__OnVSync()
 
 INCLUDE_ASM("asm/game/nonmatchings/VideoSys", VideoSys__Init);
 
+INCLUDE_RODATA("asm/game/nonmatchings/VideoSys", D_80019000);
+
+INCLUDE_RODATA("asm/game/nonmatchings/VideoSys", D_80019028);
+
 INCLUDE_ASM("asm/game/nonmatchings/VideoSys", VideoSys__Quit);
 
 void VideoSys__Reset()

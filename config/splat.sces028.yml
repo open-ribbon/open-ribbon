@@ -18,8 +18,10 @@ options:
   undefined_syms_auto_path:    config/undefined_syms_auto.sces028.vib-ribbon.txt
   find_file_boundaries:        yes
   use_legacy_include_asm:      no
-  migrate_rodata_to_functions: no
+  migrate_rodata_to_functions: yes
   disasm_unknown:              yes
+
+  include_macro_inc:           no # don't write macro.inc to rodata files
 
   rodata_string_guesser_level: 2 # improve string detection
 
@@ -40,9 +42,15 @@ segments:
     subalign: 4
     subsegments:
        # rodata
-      - [0x800, rodata, VideoSys]
-      - [0x8C8, rodata]
-      - [0x1070, rodata]
+      - [0x800, .rodata, VideoSys]
+      - [0x87C, .rodata, 5FE8]
+      - [0x914, .rodata, AudioSys]
+      - [0x9E8, .rodata, InputSys]
+      - [0xA44, rodata] # MemorySys
+      - [0xC00, rodata] # FileSys
+      - [0xEA4, rodata] # InputControl
+      - [0xF74, rodata] # Movie.h
+      - [0x1070, rodata] # E9A0
       - [0x1810, rodata]
       - [0x3F5C, rodata]
       - [0x4264, rodata]
