@@ -67,7 +67,14 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", UnkFunc00);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk00);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk05);
+extern s32 D_8003FD8C[];
+
+void AudioSys__Unk05(s16 arg0, void* data, s16 flag)
+{
+	AudioSys__Unk02(D_8003FD8C[arg0], data, flag == 1);
+}
+
+//INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk05);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk04);
 
@@ -75,12 +82,11 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc06);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001FE34);
 
-// INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc07);
 void AudioSys__UnkFunc07() // Clears the UnkVar05 values
 {
     s32 i;
 
-    voice_bit = 0xFFFFFF; // 16777215 in decimal
+    voice_bit = 0xFFFFFF;
     i = 0;
     UnkVar06 = 0;
     UnkVar07 = 0;
