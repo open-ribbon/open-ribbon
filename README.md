@@ -1,16 +1,19 @@
 # open-ribbon
-This repository is dedicated to the decompilation of **[PAL]** edition of the PS1 game Vib-Ribbon (ビブリボン). <br>
+WIP decompilation of **PAL** build of the PS1 game Vib-Ribbon (ビブリボン). <br>
 The objective is to produce a free and open-source reverse-engineered version of the game. <br>
-Documentation about this game and project can be [found here.](https://github.com/open-ribbon/documentation)
+
+Documentation about this game and project can be **[found here.](https://github.com/open-ribbon/documentation)** <br>
+Join our **[Discord](https://discord.gg/n5TPTBvGjE)** server to discuss the project.
 
 
 ## Decompilation Progress
 
-| Version      | File name  | Progress
-|--------------|------------|----------
-| `SCES-02873` | `MAIN_T.EXE` | ![progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/polybiusproxy/open-ribbon/gh-report/assets/progress-sces028.json)
-| `SCES-02873` | `MAIN_K.EXE`  | N/A 
-| `SCES-02873` | `MAIN_G.EXE`  | N/A 
+| File name  | Progress | Description
+|------------|----------|------------
+| `MAIN_T.EXE` | ![progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/polybiusproxy/open-ribbon/gh-report/assets/progress-sces028.json) | Title screen
+| `MAIN_K.EXE` | N/A | Kiosk—Tutorial level
+| `MAIN_G.EXE` | N/A | Main menu and gameplay
+| `SCES_028.73` | N/A | Module (.EXE) loader
 
 ## General info
 
@@ -23,7 +26,7 @@ Place all the necessary PSX executable files in the `iso` directory (e.g. `MAIN_
 `.bin`/`.cue` files will not work; in that case, you will have to extract it manually from the binary yourself via a program such as `binwalk`.
 
  1. Run `make extract` to generate the assembly files in the `asm/` directory
- 1. Run `make all` to compile the binaries in the `build/` directory
+ 1. Run `make` to compile the binaries in the `build/` directory
 
 In case there are any changes in the `config/` folder, you might need to run `make clean` to reset the extraction.
 
@@ -34,7 +37,7 @@ Some non-matching functions are present in the source preprocessed by the macro 
 
 1. Run `make clean extract all expected` at least once
 1. Look for a function which hasn't been successfully decompiled yet (eg. `INCLUDE_ASM("asm/game/nonmatchings/4D58", VideoSys__FlipBuffer);`)
-1. Run `FUNC=VideoSys__FlipBuffer make decompile` to dump the decompiled code on the console
+1. Run `FUNC=VideoSys__FlipBuffer FILE=VideoSys make decompile` to dump the decompiled code on the console
 1. Replace the `INCLUDE_ASM(...);` you targeted with the console output content
 1. and invoke `python3 ./tools/asm-differ/diff.py -mwo VideoSys__FlipBuffer`
 
@@ -72,5 +75,3 @@ rm binutils-mipsel-linux-gnu_2.35.2-2cross2_amd64.deb
 | ![](https://i.imgur.com/vtsmp8m.png) 						 | [unclamped](https://github.com/unclamped) 
 | ![](https://avatars.githubusercontent.com/u/70072571?s=64) | [sys128](https://github.com/sys128)
 | ![](https://avatars.githubusercontent.com/u/119765865?s=64) | [AnOpenSauceDev](https://github.com/AnOpenSauceDev)
-
-You can join our [Discord server](https://discord.gg/n5TPTBvGjE) to discuss the project.
