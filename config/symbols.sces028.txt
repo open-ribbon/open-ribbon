@@ -1,36 +1,29 @@
-//	PsyQ Functions & Variables (By Compiler)
-//	You can check if a a func/var is a compiler one here:
-//	https://psx.arthus.net/sdk/Psy-Q/DOCS/Devrefs/Libref.pdf
-printf = 0x80030674;		  // Print formatted output
-exit = 0x80030914;			  // Terminate a program normally
-SwEnterCriticalSection = 0x80030924; 	// uppresses interrupts
-SwExitCriticalSection = 0x80030480;  	// Enables interrupts
-SpuQuit = 0x80033184;		  // Terminates SPU processing
-SpuIsTransferCompleted = 0x800330D4; 	// Checks whether transfer is completed or waits for completion
-InitClip = 0x80035E1C;		  // Initialize clipping parameter
-ResetGraph = 0x8002CDE8;	  // Initialize drawing engine
-FntFlush = 0x8002F724;		  // Draw contents of print stream
-Clip3F = 0x80035CAC;		  // Three-vertex clipping functions
-GsSetProjection = 0x80035DFC; // Set the projection plane position
-rcos = 0x80035F3C;			  // Finds the cosine function of the angle
-rsin = 0x80035FDC;			  // Finds the sine function of the angle
-HWD0 = 0x800481E8;			  // Horizontal resolution
-VWD0 = 0x800481EC;			  // Vertical resolution
-SetDispMask = 0x8002CFBC;     // Puts display mask into the status specified by mask
-VSync = 0x800309E4;			  // Wait for the next vertical blank, or return the vertical blank counter value.
-delete = 0x8002F3AC;	      // This method calls the "free" method that is custom
-SsUtReverbOff = 0x800330B4;   // Turns off global Reverb.
-SpuFree = 0x80033034;         // 
-free = 0x80030620;		  	  // 
-PadStartCom = 0x80033FB0;     // Initiates a controller read operation triggered by a vertical retrace interval interrupt.
+printf = 0x80030674;
+exit = 0x80030914;
+SwEnterCriticalSection = 0x80030924;
+SwExitCriticalSection = 0x80030480;
+SpuQuit = 0x80033184;
+SpuIsTransferCompleted = 0x800330D4;
+InitClip = 0x80035E1C;
+ResetGraph = 0x8002CDE8;
+FntFlush = 0x8002F724;
+Clip3F = 0x80035CAC;
+GsSetProjection = 0x80035DFC;
+rcos = 0x80035F3C;
+rsin = 0x80035FDC;
+HWD0 = 0x800481E8;
+VWD0 = 0x800481EC;
+SetDispMask = 0x8002CFBC;
+VSync = 0x800309E4;
+delete = 0x8002F3AC;
+SpuInit = 0x800330B4;
+SpuFree = 0x80033034;
+free = 0x80030620;
+PadStartCom = 0x80033FB0;
 
-
-// Core Program
 main = 0x800233C0;
 start = 0x8002BF78;
 
-
-// Global Functions (By Developers)
 cbready = 0x80021BE8;
 cbsync = 0x80021C84;
 
@@ -46,7 +39,6 @@ evmx = 0x800401A0;
 
 evbfad = 0x8003FEE0;
 
-// No origin established yet
 UnkVar00 = 0x80047F30; 
 UnkVar01 = 0x80047F2C;
 UnkVar02 = 0x80047F34;
@@ -56,8 +48,6 @@ UnkVar05 = 0x8003FCAC;
 UnkVar06 = 0x80047F7C;
 UnkVar07 = 0x80047F88;
 
-
-// VideoSys
 VideoSys__FlipBuffer = 0x8001D558;
 VideoSys__OnDrawSync = 0x8001D584;
 VideoSys__OnVSync = 0x8001D58C;
@@ -74,13 +64,9 @@ VideoSys__alloc = 0x8001E488;
 VideoSys__SetProjection = 0x80022EE8;
 VideoSys__LoadLogos = 0x8002A030;
 
-
-// CdSys
 CdSys__Unk00MemAdd = 0x80047F4C;
 CdSys__Unk01MemAdd = 0x80047F48;
 
-
-// AudioSys
 AudioSys__Init = 0x8001F0D4;
 AudioSys__InitSpu = 0x8001F980;
 AudioSys__QuitSpu = 0x8001F108;
@@ -103,14 +89,11 @@ AudioSys__UnkFunc07 = 0x8001FE8C;
 AudioSys__UnkFunc08 = 0x80020004;
 AudioSys__UnkFunc09 = 0x8001F608;
 
-// FontHack
 FontHack__Dtor = 0x8001E744;
 FontHack__Ctor = 0x8001E798;
 FontHack_Instance = 0x80047ED4;
 FontHack__UnkFunc00 = 0x8002AF90;
 
-
-// InputSys
 InputSys__Ctor = 0x80021608;
 InputSys__Init = 0x800203B8;
 InputSys__Quit = 0x80020558;
@@ -119,23 +102,17 @@ InputSys__Unk01 = 0x80020728;
 InputSys__Unk03 = 0x800205FC;
 InputSys__alloc = 0x800208C4;
 
-
-// FileSys
 FileSys__Read = 0x80021D9C;
 FileSys__LoadFile = 0x80022210;
 FileSys__DeleteFile = 0x80022514;
 FileSys__Unknown = 0x8002254C;
 FileSys__Unk00 = 0x80022594;
 
-
-// PacketFiles
 PackedFiles__Unk00 = 0x80022044;
 PackedFiles__Init = 0x80022094;
 PackedFiles__Quit = 0x80022138;
 PackedFiles__Load = 0x80022184;
 
-
-// MemorySys
 MemorySys__Init = 0x800216FC;
 MemorySys__Info = 0x80021760;
 MemorySys__DumpUsage = 0x8002184C;
@@ -145,21 +122,15 @@ MemorySys__malloc = 0x80021988;
 MemorySys__free = 0x80021A50;
 MemorySys__CountHeapFree = 0x80021A84;
 
-
-// TmdLineObj
 TmdLineObj__Unk12 = 0x80025B34;
 
-
-// Movie
 Movie__Ctor = 0x80027ADC;
 Movie__Unk02 = 0x80028EEC; 
 
-
-// No origin established yet
 UnkFunc00 = 0x8001FA08;
 UnkFunc01 = 0x80028ABC;
-UnkFunc02 = 0x80028F54; // Returns int 1 everytime
-UnkFunc03 = 0x8001EBB4; // Probably used by AudioSys
+UnkFunc02 = 0x80028F54;
+UnkFunc03 = 0x8001EBB4;
 UnkFunc04 = 0x80020168;
 UnkFunc05 = 0x800256C4;
 UnkCtor02 = 0x80020098;

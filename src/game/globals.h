@@ -21,7 +21,7 @@ void free(void *ptr);
 
 void PadStartCom();
 
-void SsUtReverbOff();
+void SpuInit();
 
 extern s32 buffer_i;
 extern s32 fntStream;

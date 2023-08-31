@@ -6,7 +6,7 @@
 #include <psyq/STDIO.H>
 
 void AudioSys__Init() {
-    SsUtReverbOff();
+    SpuInit();
     AudioSys__InitSpu();
     VideoSys__AddVSyncCB(&AudioSys__CallBack);
 }
@@ -54,9 +54,9 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk01);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk02);
 
-s32 AudioSys__IsTransferCompleted(s32 arg0)
+s32 AudioSys__IsTransferCompleted(s32 flag)
 {
-    return SpuIsTransferCompleted(arg0 != 0) != 0;
+    return SpuIsTransferCompleted(flag != 0) != 0;
 }
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Dtor); // Uses AudioSys__UnkFunc00

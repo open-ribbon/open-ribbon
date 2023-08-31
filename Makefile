@@ -137,8 +137,8 @@ extract: require-tools dirs
 		$(SPLAT) $(CONFIG_DIR)/splat.$(GAME_ID).yml
 
 decompile: $(M2C_APP)
-		$(M2CTX) src/game/4D58.c
-		$(M2C) $(M2C_ARGS) --target mipsel-gcc-c --context ctx.c asm/game/nonmatchings/4D58/$(FUNC).s
+		$(M2CTX) src/game/$(FILE).c
+		$(M2C) $(M2C_ARGS) --target mipsel-gcc-c --context ctx.c asm/game/nonmatchings/$(FILE)/$(FUNC).s
 
 require-tools: $(SPLAT_APP) $(ASMDIFFER_APP)
 update-dependencies: require-tools $(M2CTX_APP) $(M2C_APP)
