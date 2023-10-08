@@ -112,6 +112,7 @@ format:
 check:
 		sha1sum --check $(GAME_ID).sha
 expected: check
+		mkdir expected
 		rm -rf expected/build
 		cp -r build expected/build
 
