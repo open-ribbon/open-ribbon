@@ -1,10 +1,10 @@
-![image](https://github.com/open-ribbon/open-ribbon/assets/52961795/e189d94c-9d19-4ace-ae25-9f2c17e5b30b)
+[![image](https://github.com/open-ribbon/open-ribbon/assets/52961795/e189d94c-9d19-4ace-ae25-9f2c17e5b30b)](https://github.com/open-ribbon)
 
 
 A WIP decompilation of **PAL** build of the PS1 game Vib-Ribbon (ビブリボン). <br>
 The objective is to produce a free and open-source reverse-engineered version of the game. <br>
 
-Documentation about this game and project can be **[found here.](https://github.com/open-ribbon/documentation)** <br>
+**Documentation** about this game and project can be **[found here.](https://github.com/open-ribbon/documentation)** <br>
 Join our **[Discord](https://discord.gg/n5TPTBvGjE)** server to discuss the project.
 
 
