@@ -1,7 +1,7 @@
 ![image](https://github.com/open-ribbon/open-ribbon/assets/52961795/e189d94c-9d19-4ace-ae25-9f2c17e5b30b)
 
 
-WIP decompilation of **PAL** build of the PS1 game Vib-Ribbon (ビブリボン). <br>
+A WIP decompilation of **PAL** build of the PS1 game Vib-Ribbon (ビブリボン). <br>
 The objective is to produce a free and open-source reverse-engineered version of the game. <br>
 
 Documentation about this game and project can be **[found here.](https://github.com/open-ribbon/documentation)** <br>
@@ -25,7 +25,7 @@ However, due to current limitations, this decompilation is written in C.
 ## How to build
 
 Place all the necessary PSX executable files in the `iso` directory (e.g. `MAIN_G.EXE`) first.
-`.bin`/`.cue` files will not work; in that case, you will have to extract it manually from the binary yourself via a program such as `binwalk`.
+If you don't currently have the executables needed to decompile the game, please follow [this guide](https://open-ribbon.github.io/documentation/#decompilation/file-ext/#extracting-from-biniso-file) on how to extract the files from your copy of Vib-Ribbon.
 
  1. Run `make extract` to generate the assembly files in the `asm/` directory
  1. Run `make` to compile the binaries in the `build/` directory
