@@ -1,145 +1,150 @@
-printf = 0x80030674;
-sprintf = 0x800344EC;
-prnt = 0x80037C50;
-puts = 0x800383B0;
-write = 0x8003EE4C;
-exit = 0x80030914;
-SwEnterCriticalSection = 0x80030924;
-SwExitCriticalSection = 0x80030480;
-SpuIsTransferCompleted = 0x800330D4;
-SpuInit = 0x800330B4;
-_SpuInit = 0x8003B4C8;
-SpuGetCommonAttr = 0x80031E48;
-SpuGetKeyStatus = 0x800326F4;
-SpuInitMalloc = 0x800328E4;
-SpuMalloc = 0x80032CA4;
-SpuRead = 0x800329A4;
-SpuSetCommonAttr = 0x80032158;
-SpuSetCommonMasterVolume = 0x80033014;
-SpuSetKey = 0x80032AE4;
-SpuSetTransferStartAddr = 0x80032944;
-SpuSetVoiceAttr = 0x80033330;
-SpuStart = 0x8003B5B0;
-SpuFree = 0x80033034;
-SpuQuit = 0x80033184;
-TestEvent = 0x8003B928;
-CloseEvent = 0x8003B968;
-DisableEvent = 0x8003B978;
-DeliverEvent = 0x8003ED0C;
-OpenEvent = 0x8003EFA4;
-EnableEvent = 0x8003EFB4;
-SysDepIntRP = 0x8003EFC4;
-SysEnqIntRP = 0x8003EFD4;
-setRC2wait = 0x8003EFE4;
-chkRC2wait = 0x8003F004;
-InitClip = 0x80035E1C;
-ResetGraph = 0x8002CDE8;
-FntFlush = 0x8002F724;
-Clip3F = 0x80035CAC;
-ZClipF = 0x8003F6D4;
-CdGetSector = 0x800324D8;
-CD_getsector = 0x8003B1F0;
-CdPosToInt = 0x8003261C;
-GsClearDispArea = 0x800306E4;
-GsSetProjection = 0x80035DFC;
-GsClearOt = 0x80030420;
-GsDefDispBuff = 0x80030944;
-GsGetLs = 0x80036434;
-GsGetLw = 0x8003EA0C;
-GsInit3D = 0x8003CC28;
-GsInitGraph = 0x8002FE0C;
-GsInitGraph2 = 0x8002FF9C;
-GsMulCoord2 = 0x800361F4;
-GsMulCoord3 = 0x80036274;
-GsSetDrawBuffClip = 0x80037ADC;
-GsSetDrawBuffOffset = 0x8003769C;
-GsSetRefView2 = 0x80036994;
-GsSortBoxFill = 0x8002CB48;
-GsSortClear = 0x80030224;
-GsSortFastSprite = 0x800304A0;
-Gssub_make_matrix = 0x80037B5C;
-GetClut = 0x8003ED3C;
-GetTPage = 0x8003ED5C;
-SetFarColor = 0x8003EE2C;
-SetDrawMove = 0x8003035C;
-SetDrawMode = 0x8003791C;
-LoadClut2 = 0x800377BC;
-LoadTPage = 0x8003782C;
-AddPrim = 0x80037A4C;
-DsStartReadySystem = 0x80034D6C;
-DsEndReadySystem = 0x80034DF0;
-DsReadySystemMode = 0x80034E54;
-DsSearchFile = 0x8003530C;
-DsStatus = 0x80031C40;
-rcos = 0x80035F3C;
-rsin = 0x80035FDC;
-sin_1 = 0x80036018;
-RotTransPers3 = 0x800360AC;
-RotTransPersN = 0x8003610C;
-ScaleMatrix = 0x800362F4;
-RotMatrixZYX = 0x80036704;
-SetRotMatrix = 0x8003E4EC;
-SetTransMatrix = 0x8003E51C;
-MulMatrix = 0x8003E53C;
-MulMatrix2 = 0x8003E64C;
-ApplyMatrixLV = 0x8003E75C;
-TransposeMatrix = 0x8003ECCC;
-SquareRoot0 = 0x8003E97C;
-HWD0 = 0x800481E8;
-VWD0 = 0x800481EC;
-SetDispMask = 0x8002CFBC;
-VSync = 0x800309E4;
-startIntrVSync = 0x80036F34;
-startIntrDMA = 0x800370FC;
-ChangeClearPAD = 0x800373DC;
-ChangeClearRCnt = 0x800373EC;
-delete = 0x8002F3AC;
-free = 0x80030620;
-free3 = 0x8003439C;
-PadStartCom = 0x80033FB0;
-PadStopCom = 0x8003BD48;
-__padInitDirSeq = 0x8003C6FC;
-InitHeap3 = 0x8003428C;
-FlushCache = 0x8003F90C;
-memset = 0x80030644;
-memmove = 0x80030BF4;
-memcpy = 0x8003424C;
-malloc3 = 0x800342EC;
-bzero = 0x8003CBBC;
+//	PsyQ Functions & Variables (By Compiler)
+//	You can check if a a func/var is a compiler one here:
+//	https://psx.arthus.net/sdk/Psy-Q/DOCS/Devrefs/Libref.pdf
 
-__builtin_new = 0x800303BC;
+// PSYQ FUNCTIONS
+printf = 0x80030674; // OK
+sprintf = 0x800344EC; // OK
+prnt = 0x80037C50; // OK
+puts = 0x800383B0; // OK
+write = 0x8003EE4C; // OK
+exit = 0x80030914; // OK
+SwEnterCriticalSection = 0x80030924; // OK
+SwExitCriticalSection = 0x80030480; // OK
+SpuIsTransferCompleted = 0x800330D4; // OK
+SpuInit = 0x800330B4; // OK [VOID]
+_SpuInit = 0x8003B4C8; // OK [INT]
+SpuGetCommonAttr = 0x80031E48; // OK
+SpuGetKeyStatus = 0x800326F4; // OK
+SpuInitMalloc = 0x800328E4; // OK
+SpuMalloc = 0x80032CA4; // OK
+SpuWrite = 0x800329A4 // FIX
+// SpuWrite not found in IDA
+SpuSetCommonAttr = 0x80032158; // OK
+SpuSetCommonMasterVolume = 0x80033014; // OK
+SpuSetKey = 0x80032AE4; // OK
+SpuSetTransferStartAddr = 0x80032944; // OK
+SpuSetVoiceAttr = 0x80033330; // OK
+SpuStart = 0x8003B5B0; // OK
+SpuFree = 0x80033034; // OK
+SpuQuit = 0x80033184; // OK
+TestEvent = 0x8003B928; // OK
+CloseEvent = 0x8003B968; // OK
+DisableEvent = 0x8003B978; // OK
+DeliverEvent = 0x8003ED0C; // OK
+putchar = 0x8003EFAC // FIX
+// OpenEvent not found in IDA
+EnableEvent = 0x8003EFB4; // OK
+SysDepIntRP = 0x8003EFC4; // OK
+SysEnqIntRP = 0x8003EFD4; // OK
+setRC2wait = 0x8003EFE4; // OK
+chkRC2wait = 0x8003F004; // OK
+InitClip = 0x80035E1C; // OK
+ResetGraph = 0x8002CDE8; // OK
+FntFlush = 0x8002F724; // OK
+Clip3F = 0x80035CAC; // OK
+ZClipF = 0x8003F6D4; // OK
+CdGetSector = 0x800324D8; // SHOWING UP AS sub_800324D8
+CD_getsector = 0x8003B1F0; // SHOWING UP AS sub_8003B1F0
+CdPosToInt = 0x8003261C; // OK
+GsClearDispArea = 0x800306E4; // OK
+GsSetProjection = 0x80035DFC; // OK
+GsClearOt = 0x80030420; // OK
+GsDefDispBuff = 0x80030944; // OK
+GsGetLs = 0x80036434; // OK
+GsGetLw = 0x8003EA0C; // OK
+GsInit3D = 0x8003CC28; // SHOWING UP AS  sub_8003CBF8
+GsInitGraph = 0x8002FE0C; // OK
+GsInitGraph2 = 0x8002FF9C; // OK
+GsMulCoord2 = 0x800361F4; // SHOWING UP AS sub_800361F4
+GsMulCoord3 = 0x80036274; // SHOWING UP AS sub_80036274
+GsSetDrawBuffClip = 0x80037ADC; // OK
+GsSetDrawBuffOffset = 0x8003769C; // SHOWING UP AS sub_8003769C
+GsSetRefView2 = 0x80036994; // OK
+GsSortBoxFill = 0x8002CB48; // OK
+GsSortClear = 0x80030224; // OK
+GsSortFastSprite = 0x800304A0; // OK
+Gssub_make_matrix = 0x80037B5C; // OK
+GetClut = 0x8003ED3C; // OK
+GetTPage = 0x8003ED5C; // OK
+SetFarColor = 0x8003EE2C; // OK
+SetDrawMove = 0x8003035C; // OK
+LoadClut2 = 0x800377BC; // OK
+LoadTPage = 0x8003782C; // OK
+AddPrim = 0x80037A4C; // OK
+DsStartReadySystem = 0x80034D6C; // OK
+DsEndReadySystem = 0x80034DF0; // OK
+DsReadySystemMode = 0x80034E54; // OK
+DsSearchFile = 0x8003530C; // OK
+DsStatus = 0x80031C40; // SHOWING UP AS DsStatus_tmp in IDA
+rcos = 0x80035F3C; // OK
+rsin = 0x80035FDC; // OK
+sin_1 = 0x80036018; // OK 
+RotTransPers3 = 0x800360AC; // OK
+RotTransPersN = 0x8003610C; // OK
+ScaleMatrix = 0x800362F4; // OK
+RotMatrixZYX = 0x80036704; // OK
+SetRotMatrix = 0x8003E4EC; // OK
+SetTransMatrix = 0x8003E51C; // OK
+MulMatrix = 0x8003E53C; // OK
+MulMatrix2 = 0x8003E64C; // OK
+ApplyMatrixLV = 0x8003E75C; // OK
+TransposeMatrix = 0x8003ECCC; // OK
+SquareRoot0 = 0x8003E97C; // OK
+SetDispMask = 0x8002CFBC; // OK
+VSync = 0x800309E4; // OK
+startIntrVSync = 0x80036F34; // OK
+startIntrDMA = 0x800370FC; // OK
+ChangeClearPAD = 0x800373DC; // OK
+ChangeClearRCnt = 0x800373EC; // OK
+delete = 0x8002F3AC; // OK
+free = 0x80030620; // OK
+free3 = 0x8003439C; // OK
+PadStartCom = 0x80033FB0; // OK
+PadStopCom = 0x8003BD48; // OK
+InitHeap3 = 0x8003428C; // OK
+FlushCache = 0x8003F90C; // OK
+memset = 0x80030644; // OK
+memmove = 0x80030BF4; // OK
+memcpy = 0x8003424C; // OK
+malloc3 = 0x800342EC; // OK
+bzero = 0x8003CBBC; // OK
+__builtin_new = 0x800303BC; // SHOWING UP AS new IN IDA
+__muldf3 = 0x8002C718; // SHOWING UP AS _muldf3 IN IDA
+__mulsf3 = 0x8002CCA8; // SHOWING UP AS _mulsf3 IN IDA
+__fixdfsi = 0x80030764; // SHOWING UP AS _fixdfsi IN IDA
+__padInitDirSeq = 0x8003C6FC; // SHOWING UP AS _padInitDirSeq IN IDA
+__extendsfdf2 = 0x80032784; // SHOWING UP AS _extendsfdf2 IN IDA
+__ledf2 = 0x80032A04; // SHOWING UP AS _ledf2 IN IDA 
+__gesf2 = 0x80032F74; // SHOWING UP AS _gesf2 IN IDA
+_dbl_shift_us = 0x8003741C; // SHOWING UP AS dbl_shift_us IN IDA
+_dbl_shift = 0x800382F0; // SHOWING UP AS dbl_shift IN IDA
+_add_mant_d = 0x800374DC; // SHOWING UP AS _add_mant_d IN IDA
+_err_math = 0x8003758C; // SHOWING UP AS err_math IN IDA 
+_make_packet = 0x800375FC; // SHOWING UP AS make_packet IN IDA
 
-__muldf3 = 0x8002C718;
-__mulsf3 = 0x8002CCA8;
-__fixdfsi = 0x80030764;
-__fixsfsi = 0x80030864;
-__extendsfdf2 = 0x80032784;
-__ledf2 = 0x80032A04;
-__gesf2 = 0x80032F74;
-_dbl_shift_us = 0x8003741C;
-_dbl_shift = 0x800382F0;
-_add_mant_d = 0x800374DC;
-_err_math = 0x8003758C;
-_make_packet = 0x800375FC;
 
+// PSYQ VARIABLES
 main = 0x800233C0;
 start = 0x8002BF78;
 
-cbready = 0x80021BE8;
-cbsync = 0x80021C84;
+HWD0 = 0x800481E8; // OK
+VWD0 = 0x800481EC; // OK
 
+
+fntStream = 0x80047F08;
+evmx = 0x800401A0;
+evbfad = 0x8003FEE0;
 voice_bit = 0x80047F80;
 
 vsync = 0x8003F958;
 vsync_cb = 0x8003F958;
 vsync_cb_end = 0x8003F960;
 
-fntStream = 0x80047F08;
+cbready = 0x80021BE8;
+cbsync = 0x80021C84;
 
-evmx = 0x800401A0;
-
-evbfad = 0x8003FEE0;
-
+// UNKNOWN VARS
 UnkVar00 = 0x80047F30; 
 UnkVar01 = 0x80047F2C;
 UnkVar02 = 0x80047F34;
@@ -149,6 +154,16 @@ UnkVar05 = 0x8003FCAC;
 UnkVar06 = 0x80047F7C;
 UnkVar07 = 0x80047F88;
 
+// UNKNOWN FUNCS
+UnkFunc00 = 0x8001FA08;
+UnkFunc01 = 0x80028ABC;
+UnkFunc02 = 0x80028F54;
+UnkFunc03 = 0x8001EBB4;
+UnkFunc04 = 0x80020168;
+UnkFunc05 = 0x800256C4;
+UnkCtor02 = 0x80020098;
+
+// VIDEOSYS
 VideoSys__FlipBuffer = 0x8001D558;
 VideoSys__OnDrawSync = 0x8001D584;
 VideoSys__OnVSync = 0x8001D58C;
@@ -165,9 +180,11 @@ VideoSys__alloc = 0x8001E488;
 VideoSys__SetProjection = 0x80022EE8;
 VideoSys__LoadLogos = 0x8002A030;
 
+// CDSYS
 CdSys__Unk00MemAdd = 0x80047F4C;
 CdSys__Unk01MemAdd = 0x80047F48;
 
+// AUDIOSYS
 AudioSys__Init = 0x8001F0D4;
 AudioSys__InitSpu = 0x8001F980;
 AudioSys__QuitSpu = 0x8001F108;
@@ -190,11 +207,13 @@ AudioSys__UnkFunc07 = 0x8001FE8C;
 AudioSys__UnkFunc08 = 0x80020004;
 AudioSys__UnkFunc09 = 0x8001F608;
 
+// FONTHACK
 FontHack__Dtor = 0x8001E744;
 FontHack__Ctor = 0x8001E798;
 FontHack_Instance = 0x80047ED4;
 FontHack__UnkFunc00 = 0x8002AF90;
 
+// INPUTSYS
 InputSys__Ctor = 0x80021608;
 InputSys__Init = 0x800203B8;
 InputSys__Quit = 0x80020558;
@@ -203,17 +222,20 @@ InputSys__Unk01 = 0x80020728;
 InputSys__Unk03 = 0x800205FC;
 InputSys__alloc = 0x800208C4;
 
+// FILESYS
 FileSys__Read = 0x80021D9C;
 FileSys__LoadFile = 0x80022210;
 FileSys__DeleteFile = 0x80022514;
 FileSys__Unknown = 0x8002254C;
 FileSys__Unk00 = 0x80022594;
 
+// PACKEDFILES
 PackedFiles__Unk00 = 0x80022044;
 PackedFiles__Init = 0x80022094;
 PackedFiles__Quit = 0x80022138;
 PackedFiles__Load = 0x80022184;
 
+// MEMORYSYS
 MemorySys__Init = 0x800216FC;
 MemorySys__Info = 0x80021760;
 MemorySys__DumpUsage = 0x8002184C;
@@ -223,15 +245,10 @@ MemorySys__malloc = 0x80021988;
 MemorySys__free = 0x80021A50;
 MemorySys__CountHeapFree = 0x80021A84;
 
+// TMDLINEOBJ
 TmdLineObj__Unk12 = 0x80025B34;
 
+// MOVIE
 Movie__Ctor = 0x80027ADC;
 Movie__Unk02 = 0x80028EEC; 
 
-UnkFunc00 = 0x8001FA08;
-UnkFunc01 = 0x80028ABC;
-UnkFunc02 = 0x80028F54;
-UnkFunc03 = 0x8001EBB4;
-UnkFunc04 = 0x80020168;
-UnkFunc05 = 0x800256C4;
-UnkCtor02 = 0x80020098;
