@@ -30,16 +30,16 @@ cbsync = 0x80021C84;
 voice_bit = 0x80047F80;
 
 vsync = 0x8003F958;
-vsync_cb = 0x8003F958;
 vsync_cb_end = 0x8003F960;
 
+buffer_i  = 0x80047ED0;
 fntStream = 0x80047F08;
 
 evmx = 0x800401A0;
 
 evbfad = 0x8003FEE0;
 
-UnkVar00 = 0x80047F30; 
+UnkVar00 = 0x80047F30;
 UnkVar01 = 0x80047F2C;
 UnkVar02 = 0x80047F34;
 UnkVar03 = 0x80047FA0;
@@ -72,7 +72,7 @@ AudioSys__InitSpu = 0x8001F980;
 AudioSys__QuitSpu = 0x8001F108;
 AudioSys__new = 0x8001F7F4;
 AudioSys__Dtor = 0x8001F92C;
-AudioSys__SetVolume = 0x8001F13C; 
+AudioSys__SetVolume = 0x8001F13C;
 AudioSys__IsTransferCompleted = 0x8001F90C;
 AudioSys__CallBack = 0x8001FED4;
 AudioSys__ParseVH = 0x8001F628;
@@ -91,7 +91,7 @@ AudioSys__UnkFunc09 = 0x8001F608;
 
 FontHack__Dtor = 0x8001E744;
 FontHack__Ctor = 0x8001E798;
-FontHack_Instance = 0x80047ED4;
+FontHack_Instance = 0x80047ED4; // size:0x8
 FontHack__UnkFunc00 = 0x8002AF90;
 
 InputSys__Ctor = 0x80021608;
@@ -125,7 +125,7 @@ MemorySys__CountHeapFree = 0x80021A84;
 TmdLineObj__Unk12 = 0x80025B34;
 
 Movie__Ctor = 0x80027ADC;
-Movie__Unk02 = 0x80028EEC; 
+Movie__Unk02 = 0x80028EEC;
 
 UnkFunc00 = 0x8001FA08;
 UnkFunc01 = 0x80028ABC;

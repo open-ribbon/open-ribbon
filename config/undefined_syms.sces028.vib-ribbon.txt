@@ -1,2 +1,1 @@
-buffer_i = 0x80047ED0;
-fntStream = 0x80047F08;
+
