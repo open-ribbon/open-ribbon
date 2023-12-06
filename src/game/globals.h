@@ -21,22 +21,13 @@ void free(void *ptr);
 
 void PadStartCom();
 
-void SpuInit();
-
-extern s32 buffer_i;
-extern s32 fntStream;
+void SsUtReverbOff();
 
 extern s32 HWD0;
 extern s32 VWD0;
 
 extern EVECTOR* evmx[];
 extern EVECTOR evbfad;
-
-extern s32 CdSys__Unk00MemAdd;
-extern s32 CdSys__Unk01MemAdd;
-
-extern s32 voice_bit;
-
 
 struct VSyncCb {};
 extern struct VSyncCb vsync_cb;
@@ -52,8 +43,12 @@ struct VSyncCbList
 extern struct VSyncCbList vsync;
 
 
-typedef struct {} FAInstance;
-extern struct FAInstance FontHack_Instance;
+typedef struct {
+		s32  unk0;
+		void *unk4;
+} FAInstance; // size 0x8
+
+extern FAInstance FontHack_Instance;
 
 
 extern void AudioSys__InitSpu();
@@ -68,7 +63,7 @@ extern void VideoSys__RemoveVSyncCB(void *callback);
 
 extern void MemorySys__free(void *addr);
 
-extern void FontHack__UnkFunc00(struct FAInstance*, s32); // TO BE FIXED
+extern void FontHack__UnkFunc00(FAInstance*, s32); // TO BE FIXED
 
 typedef struct PakFile PakFile;
 struct PakFile {
@@ -91,24 +86,51 @@ typedef struct {
 typedef struct
 {
     s16 unk0;
-    s16 unk1; // Lowers a bit without it, this variable exists
+    s16 unk2; // Lowers a bit without it, this variable exists
     s16 unk4;
 } UnkStruct02;
+
+typedef struct {
+    s32 unk0;
+    s32 unk4;
+} UnkStruct03; // size unknown
+
+typedef struct {
+    void *unk0;
+    u8  pad4[0x24];
+    UnkStruct03 unk28;
+} UnkStruct04; // size 0x30?
 
 typedef struct {
   s16 unk0;
   u8  unk2;
 } UnkStruct05;
 
+typedef struct {
+  u8 unk0;
+  u8 pad1[0x4];
+  u8 unk5;
+  u8 unk6;
+  u8 unk7;
+} UnkStruct06;
+
+typedef struct {
+		s32 unk0;
+		s32 unk4;
+		s32 unk8;
+} UnkStruct07;
+
+
+typedef struct {
+		s32 unk0;
+		s32 unk4;
+} UnkStruct08;
+
 // No origin established yet
-volatile s32 UnkVar00;
-volatile s32 UnkVar01;
-volatile s32 UnkVar02;
 extern UnkStruct01* UnkVar03;
-extern s16 UnkVar04;
+
 extern s32 UnkVar05[24];
-extern s32 UnkVar06;
-extern s32 UnkVar07;
+
 // ^ NO RELATIONS V
 extern void UnkFunc00();
 extern void UnkFunc01();

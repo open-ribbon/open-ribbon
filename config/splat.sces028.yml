@@ -27,23 +27,28 @@ options:
 
   gp_value: 0x80047EB8
 
+  ld_legacy_generation: yes
+
   section_order:
     - .rodata
     - .text
     - .data
     - .bss
+    # - .sdata
+    # - .sbss
 
 segments:
-  - [0, header]
+  - [0x0, header]
   - name:  vib-ribbon
     type:  code
     start: 0x00000800
     vram:  0x80019000
+    align: 4
     subalign: 4
     subsegments:
        # rodata
       - [0x800, .rodata, VideoSys]
-      - [0x87C, .rodata, 5FE8]
+      - [0x87C, .rodata, CdSys]
       - [0x914, .rodata, AudioSys]
       - [0x9E8, .rodata, InputSys]
       - [0xA44, rodata] # MemorySys
@@ -69,8 +74,8 @@ segments:
       - [0x4C60, rodata]
       # .text
       - [0x4D58, c, VideoSys]
-      - [0x5E58, c, FontHack] # FontHack
-      - [0x5FE8, c] # CdSys
+      - [0x5E58, c, FontHack]
+      - [0x5FE8, c, CdSys]
       - [0x68D4, c, AudioSys]
       - [0x7BB8, c, InputSys]
       - [0x8EFC, c, MemorySys]
@@ -83,7 +88,7 @@ segments:
       - [0x14348, asm]
       - [0x14428, asm]
       - [0x144A8, asm]
-      - [0x19648, asm]
+      - [0x19648, c]
       - [0x19958, asm]
       - [0x19CD8, asm]
       - [0x1A144, asm]
@@ -164,8 +169,14 @@ segments:
       # data
       - [0x27118, data]
       # sdata
-      - [0x2F6C0, data]
+      - [0x2F6C0, .sdata, VideoSys]
+      - [0x2F6D4, .data, FontHack]
       # sbss
+      - [0x2F6E0, data, VideoSys] # wtf?
+      - [0x2F6E4, .sbss, VideoSys]
+      - [0x2F71C, .sbss, CdSys]
+      - [0x2F778, .sdata, AudioSys] # ???
+      - [0x2F7A0, data] # InputSys
       - [0x2F964, data]
       # bss
       - [0x2F970, data]

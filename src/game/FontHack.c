@@ -5,6 +5,10 @@
 #include <psyq/LIBGTE.H>
 #include <psyq/STDIO.H>
 
+// NOTE: -G0 override for this file
+
+FAInstance FontHack_Instance = {0, 0};
+char D_80047EDC[2] = "\n\n";
 
 INCLUDE_ASM("asm/game/nonmatchings/FontHack", func_8001E658);
 

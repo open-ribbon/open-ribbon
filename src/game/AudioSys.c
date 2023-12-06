@@ -5,6 +5,20 @@
 #include <psyq/LIBGTE.H>
 #include <psyq/STDIO.H>
 
+// is this bss or data???
+s16 UnkVar04 = 0;  // 0x80047F78
+s32 UnkVar06 = 0;  // 0x80047F7C
+s32 voice_bit = 0; // 0x80047F80
+s32 D_80047F84 = 0;
+s32 UnkVar07 = 0;  // 0x80047F88
+
+char D_80047F8C[2] = "%d";
+char D_80047F90[2] = "%u";
+char D_80047F94[2] = "";
+
+s32 D_80047F98 = 0xFFFF0100;
+s32 D_80047F9C = 0x0000FFFF;
+
 void AudioSys__Init() {
     SpuInit();
     AudioSys__InitSpu();
@@ -32,7 +46,6 @@ void AudioSys__UnkFunc01(UnkStruct02* arg0, s16 arg1, s16 arg2, s16 arg3)
 {
     AudioSys__UnkFunc06(arg1, UnkVar04, arg0->unk0, arg0->unk4, (s16) (arg0->unk4 + 1), 0, arg2, arg2, arg3);
 }
-// INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc01);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F5E4);
 
@@ -40,7 +53,6 @@ int AudioSys__UnkFunc09()
 {
     return AudioSys__UnkFunc08();
 }
-// INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc07);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__ParseVH);
 
@@ -73,8 +85,6 @@ void AudioSys__Unk05(s16 arg0, void* data, s16 flag)
 {
 	AudioSys__Unk02(D_8003FD8C[arg0], data, flag == 1);
 }
-
-//INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk05);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk04);
 

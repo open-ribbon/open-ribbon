@@ -14,8 +14,8 @@ CPP             := $(CROSS)cpp
 OBJCOPY         := $(CROSS)objcopy
 MODERN_GCC      := gcc
 
-# AS_FLAGS        := -Wa,-EL,-march=r3000,-mtune=r3000,-msoft-float,-no-pad-sections,-Iinclude
-AS_FLAGS        := -Iinclude -march=r3000 -mtune=r3000 -no-pad-sections -Os
+AS_FLAGS        := -Wa,-EL,-march=r3000,-mtune=r3000,-msoft-float,-no-pad-sections,-Iinclude
+# AS_FLAGS        := -Iinclude -march=r3000 -mtune=r3000 -no-pad-sections -Os
 
 CPP_FLAGS       := -Iinclude -Iinclude/psyq
 CPP_FLAGS       += -undef -lang-c -Wall -fno-builtin -fsigned-char
@@ -72,12 +72,6 @@ MASPSX_ARGS     := --expand-div
 SDATA_LIMIT     := -G4
 OPT_FLAGS       := -Os
 
-AS_SDATA_LIMIT  := -G0
-
-$(BUILD_DIR)/src/game/VideoSys.c.o: AS_SDATA_LIMIT := -G4
-$(BUILD_DIR)/src/game/AudioSys.c.o: AS_SDATA_LIMIT := -G4
-$(BUILD_DIR)/src/game/5FE8.c.o: AS_SDATA_LIMIT := -G4
-
 # macros
 define list_src_files
 		$(foreach dir, $(ASM_DIR)/game,         $(wildcard $(dir)/**.s))
@@ -100,6 +94,8 @@ define link
 			-nostdlib \
 			-s
 endef
+
+$(BUILD_DIR)/src/game/FontHack.c.o: SDATA_LIMIT := -G0
 
 # recipes
 all: build check
@@ -168,10 +164,10 @@ $(BUILD_DIR)/%.s.o: %.s
 $(BUILD_DIR)/%.bin.o: %.bin
 	$(LD) -r -b binary -o -Map %.map $@ $<
 
-# $(GCC) $(CC_FLAGS) $(SDATA_LIMIT) $(OPT_FLAGS) $(AS_FLAGS),$(AS_SDATA_LIMIT) $< -o $@
+# $(CPP) $(CPP_FLAGS) $< | $(CC) $(CC_FLAGS) $(OPT_FLAGS) $(SDATA_LIMIT) | $(MASPSX) $(MASPSX_ARGS) $(AS_SDATA_LIMIT) | $(AS) $(AS_SDATA_LIMIT) -o $@
 $(BUILD_DIR)/%.c.o: %.c $(MASPSX_APP)
 	@$(CC_CHECK) $<
-	$(CPP) $(CPP_FLAGS) $< | $(CC) $(CC_FLAGS) $(OPT_FLAGS) $(SDATA_LIMIT) | $(MASPSX) $(MASPSX_ARGS) $(AS_SDATA_LIMIT) | $(AS) $(AS_SDATA_LIMIT) -o $@
+	$(GCC) $(CC_FLAGS) $(SDATA_LIMIT) $(OPT_FLAGS) $(AS_FLAGS) $< -o $@
 
 SHELL = /bin/bash -e -o pipefail
 
