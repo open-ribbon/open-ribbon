@@ -16,7 +16,9 @@ INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__DumpUsage);
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__DumpHead);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__Init01);
+void MemorySys__Init01(void) {
+    MemorySys__Init();
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__malloc);
 
@@ -83,7 +85,17 @@ INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022C80);
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022CDC);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022D78);
+u8* func_80022D78(u8* dest, s32 count, u8* value) {
+    // memset-like function
+    u8* ptr = dest;
+
+    while (count != 0) {
+        *ptr++ = *value;
+        count--;
+    }
+
+    return ptr;
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022D9C);
 

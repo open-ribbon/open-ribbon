@@ -71,4 +71,6 @@ INCLUDE_ASM("asm/game/nonmatchings/12250", func_8002BEF0);
 
 INCLUDE_ASM("asm/game/nonmatchings/12250", func_8002BF00);
 
-INCLUDE_ASM("asm/game/nonmatchings/12250", func_8002BF70);
+void func_8002BF70(UnkStruct00* arg0, s32 arg1) {
+    arg0->unk18 = arg1;
+}
