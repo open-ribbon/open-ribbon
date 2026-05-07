@@ -182,37 +182,30 @@ INCLUDE_ASM("asm/game/nonmatchings/CdSys", func_8001ED44);
 
 INCLUDE_ASM("asm/game/nonmatchings/CdSys", func_8001ED6C);
 
-#if 0
-// need to migrate .rodata
+extern char D_8001907C[]; // "Assertion failed: file \"%s\", line %d\n"
+extern char D_800190A4[]; // "C:/psj/dev/locale/game/CdSys.cpp"
+
 void func_8001EFEC(s32 arg0) {
     SwEnterCriticalSection();
     if (CdSys__Unk01MemAdd != 0) {
-        printf("Assertion failed: file \"%s\", line %d\n", "C:/psj/dev/locale/game/CdSys.cpp", 0x1FF);
+        printf(D_8001907C, D_800190A4, 0x1FF);
         exit(1);
     }
     CdSys__Unk01MemAdd = arg0;
     SwExitCriticalSection();
 }
-#else
-INCLUDE_ASM("asm/game/nonmatchings/CdSys", func_8001EFEC);
-#endif
 
-#if 0
-// need to migrate .rodata
 void func_8001F048(int *arg0)
 {
     SwEnterCriticalSection();
     if (CdSys__Unk00MemAdd)
     {
-        printf("Assertion failed: file \"%s\", line %d\n", "C:/psj/dev/locale/game/CdSys.cpp", 511);
+        printf(D_8001907C, D_800190A4, 511);
         exit(1);
     }
     CdSys__Unk00MemAdd = arg0;
     SwExitCriticalSection();
 }
-#else
-INCLUDE_ASM("asm/game/nonmatchings/CdSys", func_8001F048);
-#endif
 
 // reset something
 void func_8001F0A4(void) {

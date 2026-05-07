@@ -73,7 +73,24 @@ INCLUDE_ASM("asm/game/nonmatchings/VideoSys", VideoSys__GetOT);
 
 INCLUDE_ASM("asm/game/nonmatchings/VideoSys", VideoSys__AddVSyncCB);
 
-INCLUDE_ASM("asm/game/nonmatchings/VideoSys", VideoSys__RemoveVSyncCB);
+extern s32 func_8001E658(s32, s32, s32*, s32);
+extern void func_80030BF4(s32, s32, s32);
+
+void VideoSys__RemoveVSyncCB(s32 arg0) {
+    s32 v0;
+    s32 v1;
+
+    SwEnterCriticalSection();
+
+    v0 = func_8001E658((s32)vsync.cb, (s32)vsync.tail, &arg0, 0);
+    v1 = v0 + 4;
+    if (v1 != (s32)vsync.tail) {
+        func_80030BF4(v0, v1, ((s32)vsync.tail - v1) >> 0x2 << 0x2);
+    }
+
+    vsync.tail = (VSyncCb)((s32)vsync.tail - 4);
+    SwExitCriticalSection();
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/VideoSys", VideoSys__alloc);
 

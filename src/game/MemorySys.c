@@ -16,7 +16,9 @@ INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__DumpUsage);
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__DumpHead);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__Init01);
+void MemorySys__Init01(void) {
+    MemorySys__Init();
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", MemorySys__malloc);
 
@@ -47,11 +49,32 @@ INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80021E6C);
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80021EF4);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", PackedFiles__Unk00);
+extern s32 D_800194A4[];
+
+s32 PackedFiles__Unk00(s32 arg0, s32 *arg1, s32 arg2) {
+    s32 c;
+    s32 v;
+
+    if (*arg1 >= 5) {
+        if (arg2 == 0) {
+            return 0;
+        }
+        *arg1 = 0;
+    }
+    c = *arg1;
+    v = D_800194A4[c];
+    *arg1 = c + 1;
+    return arg0 | v;
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", PackedFiles__Init);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", PackedFiles__Quit);
+extern PakFile D_8003FE68;
+
+void PackedFiles__Quit(void) {
+    PakFile pf = D_8003FE68;
+    FileSys__DeleteFile(pf);
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", PackedFiles__Load);
 
@@ -60,12 +83,40 @@ INCLUDE_ASM("asm/game/nonmatchings/MemorySys", FileSys__LoadFile);
 void FileSys__DeleteFile(PakFile pf)
 {
     if (pf.size != 0 && pf.next != NULL)
-        delete(pf);
+        delete(pf.next);
 }
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", FileSys__Unknown);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", FileSys__Unk00);
+typedef struct {
+    char *start;
+    char *end;
+} FileSysStr0;
+
+extern void *func_8003424C(void *, const void *, int); /* memcpy */
+extern void *func_80030BF4(void *, const void *, int); /* memmove */
+
+FileSysStr0* FileSys__Unk00(FileSysStr0* self, char* new_start, char* new_end) {
+    char *curEnd;
+    char *newEnd;
+
+    if ((unsigned int)(self->end - self->start) >= (unsigned int)(new_end - new_start)) {
+        func_8003424C(self->start, new_start, new_end - new_start);
+
+        curEnd = self->end;
+        newEnd = self->start + (new_end - new_start);
+
+        if (newEnd != curEnd) {
+            func_80030BF4(newEnd, curEnd, 1);
+            self->end -= (curEnd - newEnd);
+        }
+    } else {
+        func_8003424C(self->start, new_start, self->end - self->start);
+        func_80022660(self, new_start + (self->end - self->start), new_end, 0);
+    }
+
+    return self;
+}
 
 void func_80022658(void) {}
 
@@ -79,11 +130,35 @@ void func_80022A58(void) {}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022A60);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022C80);
+extern int (*D_80048028)();
+extern char D_80019494[]; // "out of memory\n"
+
+void func_80022C80(s32 arg0) {
+    int (*var_v0)();
+
+    do {
+        var_v0 = D_80048028;
+        if (var_v0 == NULL) {
+            printf(&D_80019494);
+            exit(1);
+        }
+        var_v0();
+    } while (MemorySys__malloc(arg0) == 0);
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022CDC);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022D78);
+u8* func_80022D78(u8* dest, s32 count, u8* value) {
+    // memset-like function
+    u8* ptr = dest;
+
+    while (count != 0) {
+        *ptr++ = *value;
+        count--;
+    }
+
+    return ptr;
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80022D9C);
 
@@ -206,11 +281,28 @@ s32 func_80023A88(s32 arg0, s32 arg1, s32 arg2) {
     return arg0 + (arg2 - arg1);
 }
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80023A94);
+extern char D_800195F4[]; // "out of memory\n"
+
+void func_80023A94(s32 arg0) {
+    int (*var_v0)();
+
+    do {
+        var_v0 = D_80048028;
+        if (var_v0 == NULL) {
+            printf(&D_800195F4);
+            exit(1);
+        }
+        var_v0();
+    } while (MemorySys__malloc(arg0) == 0);
+}
 
 void func_80023AF0(void) {}
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80023AF8);
+s32* func_80023AF8(s32* arg0) {
+    arg0[30] = 0; /* 0x78 */
+    arg0[38] = 0; /* 0x98 */
+    return arg0;
+}
 
 s32* func_80023B08(s32* arg0) {
     *arg0 = 0;
@@ -255,9 +347,46 @@ INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80024884);
 // part of TmdLineObj.cpp
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80024A48);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80024CC4);
+typedef struct {
+    s32 unk0;
+    char pad4[8];
+    void *unkC;
+    char pad10[0x1C];
+    void *unk2C;
+} UnkStruct17;
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80024D40);
+void func_80024CC4(UnkStruct17* arg0, s32 arg1) {
+    if (arg0->unkC != NULL) {
+        delete(arg0->unkC);
+    }
+    if (arg0->unk0 != 0 && arg0->unk2C != NULL) {
+        delete(arg0->unk2C);
+    }
+    if (arg1 & 1) {
+        free(arg0);
+    }
+}
+
+typedef struct {
+    char pad0[0x20];
+    s32 idx0;
+    s32 idx1;
+    s32 idx2;
+    SVECTOR *vbuf;
+} TriObj;
+
+s32 func_80024D40(TriObj* arg0) {
+    long sxy0, sxy1, sxy2;
+    long flag;
+
+    RotTransPers3(
+        arg0->vbuf + arg0->idx0,
+        arg0->vbuf + arg0->idx1,
+        arg0->vbuf + arg0->idx2,
+        &sxy0, &sxy1, &sxy2, &flag, &flag);
+
+    return (u32)NormalClip(sxy0, sxy1, sxy2) >> 31;
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80024DBC);
 
@@ -338,8 +467,33 @@ INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80026F5C);
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80027000);
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80027090);
+typedef struct {
+    char pad0[0xC];
+    s32 unkC;
+} F800270XXEntry;
 
-INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_800270DC);
+typedef struct {
+    char pad0[0x4];
+    s32 unk4;
+    char pad8[0x4];
+    F800270XXEntry *unkC;
+} F800270XXStruct;
+
+extern s32 AudioSys__UnkFunc09();
+
+s32 func_80027090(F800270XXStruct *arg0) {
+    if (arg0->unkC[arg0->unk4].unkC == -97) {
+        return 0;
+    }
+    return AudioSys__UnkFunc09(0) ^ 1;
+}
+
+extern s32 func_8001F5E4(s16);
+
+void func_800270DC(s32 *arg0) {
+    arg0[1] = 0;
+    arg0[0] = 0;
+    func_8001F5E4(0);
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/MemorySys", func_80027104);

@@ -47,7 +47,11 @@ void AudioSys__UnkFunc01(UnkStruct02* arg0, s16 arg1, s16 arg2, s16 arg3)
     AudioSys__UnkFunc06(arg1, UnkVar04, arg0->unk0, arg0->unk4, (s16) (arg0->unk4 + 1), 0, arg2, arg2, arg3);
 }
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F5E4);
+extern s32 func_8001FE34(s32);
+
+s32 func_8001F5E4(s16 arg0) {
+    return func_8001FE34(arg0);
+}
 
 int AudioSys__UnkFunc09()
 {
@@ -56,7 +60,26 @@ int AudioSys__UnkFunc09()
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__ParseVH);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc00); // Since its "circled" by AudioSys, its probably part of AudioSys
+typedef struct {
+    char pad0[0x10];
+    void *unk10;
+    s32 unk14;
+    void *unk18;
+} AudioSysUnkStruct02;
+
+extern u32 D_8001918C;
+extern u32 AudioSys__UnknownVar;
+extern void SpuFree(s32);
+
+void AudioSys__UnkFunc00(AudioSysUnkStruct02 *arg0, s32 arg1) {
+    arg0->unk18 = &D_8001918C;
+    if (arg0->unk10 != NULL) {
+        delete(arg0->unk10);
+    }
+    if (arg1 & 1) {
+        free(arg0);
+    }
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_8001F74C);
 
@@ -64,14 +87,28 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__new);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk01);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Unk02);
+typedef struct {
+    char unk0[0x1c];
+    s32 unk1C;
+} AudioSysUnkStruct01;
+
+void AudioSys__Unk02(AudioSysUnkStruct01* arg0, s32 arg1, s32 arg2) {
+    arg0->unk1C = arg1;
+    AudioSys__Unk01(arg0, arg2);
+}
 
 s32 AudioSys__IsTransferCompleted(s32 flag)
 {
     return SpuIsTransferCompleted(flag != 0) != 0;
 }
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__Dtor); // Uses AudioSys__UnkFunc00
+void AudioSys__Dtor(AudioSysUnkStruct02 *arg0, s32 arg1) {
+    arg0->unk18 = &AudioSys__UnknownVar;
+    if (arg0->unk14 >= 0) {
+        SpuFree(arg0->unk14);
+    }
+    AudioSys__UnkFunc00(arg0, arg1);
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__InitSpu);
 
@@ -114,7 +151,12 @@ INCLUDE_ASM("asm/game/nonmatchings/AudioSys", AudioSys__UnkFunc08);
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_80020020);
 
-INCLUDE_ASM("asm/game/nonmatchings/AudioSys", UnkCtor02);
+extern s32 D_8003FC9C[2];
+
+void UnkCtor02(void) {
+    D_8003FC9C[0] = 0;
+    D_8003FC9C[1] = 0;
+}
 
 INCLUDE_ASM("asm/game/nonmatchings/AudioSys", func_800200AC);
 
